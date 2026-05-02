@@ -19,7 +19,7 @@
     }
     .nav-logo svg { height: 28px; width: auto; }
     .nav-links { display: flex; gap: 4rem; list-style: none; }
-    .nav-links li { font-size: 15px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #111; cursor: pointer; transition: opacity 0.2s; }
+    .nav-links li { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #111; cursor: pointer; transition: opacity 0.2s; }
     .nav-links li.active > a, .nav-links li.active { font-weight: 700 !important; text-decoration: none !important; border-bottom: none !important; }
     .nav-links > li:hover { opacity: 0.45; }
     .nav-links > li.menu-open:hover { opacity: 1; }
@@ -37,8 +37,11 @@
       text-transform: uppercase; color: #C8C4BB; margin-bottom: 2rem;
     }
     h1 {
-      font-size: clamp(22px, 4vw, 36px); font-weight: 300;
-      letter-spacing: -0.01em; color: #111; margin-bottom: 3rem; line-height: 1.2;
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 400; color: #111;
+      letter-spacing: -0.03em; line-height: 1;
+      margin-bottom: 3rem;
     }
     h2 {
       font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
@@ -73,12 +76,12 @@
     }
     .footer-links { display: flex; gap: 2.5rem; list-style: none; }
     .footer-links li {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: #111; cursor: pointer;
       transition: opacity 0.2s; display: flex; align-items: center; gap: 7px;
     }
     .footer-links li:hover { opacity: 0.5; }
-    .footer-copy { font-size: 10px; font-weight: 400; color: #111; text-align: center; letter-spacing: 0.06em; }
+    .footer-copy { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 400; color: #111; text-align: center; letter-spacing: 0.06em; }
 
     @keyframes fadeDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -125,7 +128,7 @@
 
   <main>
     <p class="page-label">Legal</p>
-    <h1>Privacy Policy</h1>
+    <h1>privacy policy.</h1>
     <span class="updated">Last updated: May 2026</span>
 
     <h2>1. Who we are</h2>
