@@ -21,9 +21,8 @@
     .nav-links { display: flex; gap: 4rem; list-style: none; }
     .nav-links li { font-size: 15px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #111; cursor: pointer; transition: opacity 0.2s; }
     .nav-links > li:hover { opacity: 0.45; }
-    .nav-links li.active > a, .nav-links li.active { font-weight: 700 !important; }
-    .nav-links li.active > a { border-bottom: none !important; text-decoration: none !important; }
-    .nav-links li.active { border-bottom: 1.5px solid #111; padding-bottom: 2px; }
+    .nav-links > li.menu-open:hover { opacity: 1; }
+    .nav-links li.active > a, .nav-links li.active { font-weight: 700 !important; text-decoration: none !important; border-bottom: none !important; }
     .nav-lang { font-size: 11px; color: #111; cursor: pointer; user-select: none; justify-self: end; }
     .nav-lang .active { font-weight: 700; }
     .nav-lang .inactive { font-weight: 400; }
@@ -286,9 +285,10 @@
   (function(){
     var b = document.getElementById('prod-btn');
     var m = document.getElementById('prod-menu');
+    var li = b ? b.closest('li') : null;
     if(!b||!m) return;
-    b.onclick = function(e){ e.preventDefault(); e.stopPropagation(); m.style.display = m.style.display==='flex'?'none':'flex'; };
-    document.addEventListener('click', function(){ m.style.display='none'; });
+    b.onclick = function(e){ e.preventDefault(); e.stopPropagation(); var open = m.style.display==='flex'; m.style.display = open?'none':'flex'; if(li) li.classList.toggle('menu-open', !open); };
+    document.addEventListener('click', function(){ m.style.display='none'; if(li) li.classList.remove('menu-open'); });
   })();
 </script>
 </body>
