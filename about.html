@@ -55,6 +55,7 @@
     }
     .nav-links li:hover { opacity: 0.45; }
     .nav-links li.active > a, .nav-links li.active { font-weight: 700; }
+    .nav-links li.active > a { border-bottom: none; text-decoration: none; }
 
     .nav-lang {
       font-size: 11px;
@@ -294,7 +295,7 @@
 
     <ul class="nav-links">
       <li><a href="index.html" style="text-decoration:none;color:inherit;">Home</a></li>
-      <li><a href="about.html" style="text-decoration:none;color:inherit;" class="active">About</a></li>
+      <li class="active"><a href="about.html" style="text-decoration:none;color:inherit;">About</a></li>
       <li style="position:relative;">
         <a href="#" id="prod-btn" style="text-decoration:none;color:inherit;font-weight:400;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;">Products</a>
         <div id="prod-menu" style="display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background-color:#F0EDE4;background:#F0EDE4;border:0.5px solid #C8C4BB;box-shadow:0 4px 24px rgba(0,0,0,0.12);min-width:140px;flex-direction:column;z-index:10001;isolation:isolate;">
