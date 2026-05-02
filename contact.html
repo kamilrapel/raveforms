@@ -20,8 +20,9 @@
     .nav-logo svg { height: 28px; width: auto; }
     .nav-links { display: flex; gap: 4rem; list-style: none; }
     .nav-links li { font-size: 15px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #111; cursor: pointer; transition: opacity 0.2s; }
-    .nav-links li:hover { opacity: 0.45; }
-    .nav-links li.active > a, .nav-links li.active { font-weight: 700; }
+    .nav-links > li:hover { opacity: 0.45; }
+    .nav-links li.active > a, .nav-links li.active { font-weight: 700 !important; }
+    .nav-links li.active > a { border-bottom: none !important; text-decoration: none !important; }
     .nav-links li.active { border-bottom: 1.5px solid #111; padding-bottom: 2px; }
     .nav-lang { font-size: 11px; color: #111; cursor: pointer; user-select: none; justify-self: end; }
     .nav-lang .active { font-weight: 700; }
