@@ -191,6 +191,88 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes riseUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      /* ═══════════════════════════════════════
+       MOBILE — shared nav + footer
+       ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav {
+        padding: 1rem 1.25rem;
+        grid-template-columns: auto 1fr auto;
+        gap: 0;
+      }
+      .nav-logo svg { height: 22px; }
+      .nav-links {
+        display: none;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: #F0EDE4; z-index: 99998;
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 2.5rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { font-size: 22px; letter-spacing: 0.12em; }
+      .nav-links li:has(#prod-btn) { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+      #prod-menu {
+        position: static !important; transform: none !important;
+        display: flex !important; flex-direction: column !important;
+        box-shadow: none !important; border: none !important;
+        background: transparent !important;
+        gap: 0.5rem; align-items: center;
+      }
+      #prod-menu a {
+        font-size: 16px !important; padding: 0.4rem 1rem !important;
+        border-bottom: none !important;
+        background: transparent !important;
+      }
+      .nav-lang { font-size: 11px; }
+      .nav-hamburger {
+        display: flex; flex-direction: column; gap: 5px;
+        cursor: pointer; padding: 4px; justify-self: start;
+        z-index: 99999; position: relative;
+      }
+      .nav-hamburger span {
+        display: block; width: 22px; height: 1.5px; background: #111;
+        transition: all 0.3s ease;
+      }
+      .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+      .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+      .footer-links { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+      .footer-links li { font-size: 10px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar { padding: 1.25rem 1.25rem; }
+      .product-label { font-size: clamp(18px, 5vw, 26px); }
+      .config-btn { font-size: clamp(18px, 5vw, 28px); }
+      .config-selector { gap: 1rem; }
+
+      .main-panel {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+      }
+      .drawing-cell { min-height: 60vw; }
+      .drawing-area { min-height: 60vw; }
+      .drawing-area svg { max-width: 90%; }
+
+      .info-panel {
+        border-left: none;
+        border-top: 0.5px solid #C8C4BB;
+        padding: 1.5rem 1.25rem;
+      }
+      .config-name { font-size: 18px; }
+      .dim-label { font-size: 9px; }
+      .dim-value { font-size: 11px; }
+      .variant-desc { font-size: 10px; }
+      .order-btn { width: 100%; justify-content: center; }
+
+      .carousel-arrow { width: 36px; height: 36px; min-width: 36px; padding: 0; font-size: 13px; }
+      .carousel-arrow.prev { left: 0.5rem; }
+      .carousel-arrow.next { right: 0.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -213,6 +295,9 @@
         </g>
       </svg>
     </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html" style="text-decoration:none;color:inherit;">Home</a></li>
       <li><a href="about.html" style="text-decoration:none;color:inherit;">About</a></li>
@@ -30164,6 +30249,25 @@
     showBanner();
   };
 })();
+
+  // Hamburger menu
+  (function() {
+    var btn = document.getElementById('nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if (!btn || !links) return;
+    btn.addEventListener('click', function() {
+      btn.classList.toggle('open');
+      links.classList.toggle('open');
+      document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+    });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        btn.classList.remove('open');
+        links.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
 </script>
 
 </body>

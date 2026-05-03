@@ -154,6 +154,75 @@
     }
     .dropdown-menu a:last-child { border-bottom: none; }
     .dropdown-menu a:hover { background: #E8E4DA; }
+      /* ═══════════════════════════════════════
+       MOBILE — shared nav + footer
+       ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav {
+        padding: 1rem 1.25rem;
+        grid-template-columns: auto 1fr auto;
+        gap: 0;
+      }
+      .nav-logo svg { height: 22px; }
+      .nav-links {
+        display: none;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: #F0EDE4; z-index: 99998;
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 2.5rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { font-size: 22px; letter-spacing: 0.12em; }
+      .nav-links li:has(#prod-btn) { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+      #prod-menu {
+        position: static !important; transform: none !important;
+        display: flex !important; flex-direction: column !important;
+        box-shadow: none !important; border: none !important;
+        background: transparent !important;
+        gap: 0.5rem; align-items: center;
+      }
+      #prod-menu a {
+        font-size: 16px !important; padding: 0.4rem 1rem !important;
+        border-bottom: none !important;
+        background: transparent !important;
+      }
+      .nav-lang { font-size: 11px; }
+      .nav-hamburger {
+        display: flex; flex-direction: column; gap: 5px;
+        cursor: pointer; padding: 4px; justify-self: start;
+        z-index: 99999; position: relative;
+      }
+      .nav-hamburger span {
+        display: block; width: 22px; height: 1.5px; background: #111;
+        transition: all 0.3s ease;
+      }
+      .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+      .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+      .footer-links { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+      .footer-links li { font-size: 10px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .content { padding: 2.5rem 1.25rem 0; }
+      .headline { font-size: clamp(28px, 8vw, 48px); margin-bottom: 2rem; }
+      .contact-blocks { flex-direction: column; gap: 0; }
+      a.contact-block { padding: 1.25rem 0; }
+      .block-icon { width: 24px; height: 24px; }
+      .block-label { font-size: 9px; }
+      .block-value { font-size: 14px; }
+      .form-section { margin-top: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .field-label { font-size: 9px; }
+      .field-input { font-size: 13px; padding: 0.75rem 0; }
+      .submit-btn { width: 100%; justify-content: center; }
+      .form-submit { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .submit-note { font-size: 10px; }
+    }
   </style>
 </head>
 <body>
@@ -176,6 +245,9 @@
         </g>
       </svg>
     </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html" style="text-decoration:none;color:inherit;">Home</a></li>
       <li><a href="about.html" style="text-decoration:none;color:inherit;">About</a></li>
@@ -380,7 +452,76 @@
     display: inline-block;
   }
   #cookie-withdraw:hover { color: #111; }
-</style>
+    /* ═══════════════════════════════════════
+       MOBILE — shared nav + footer
+       ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav {
+        padding: 1rem 1.25rem;
+        grid-template-columns: auto 1fr auto;
+        gap: 0;
+      }
+      .nav-logo svg { height: 22px; }
+      .nav-links {
+        display: none;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: #F0EDE4; z-index: 99998;
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 2.5rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { font-size: 22px; letter-spacing: 0.12em; }
+      .nav-links li:has(#prod-btn) { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+      #prod-menu {
+        position: static !important; transform: none !important;
+        display: flex !important; flex-direction: column !important;
+        box-shadow: none !important; border: none !important;
+        background: transparent !important;
+        gap: 0.5rem; align-items: center;
+      }
+      #prod-menu a {
+        font-size: 16px !important; padding: 0.4rem 1rem !important;
+        border-bottom: none !important;
+        background: transparent !important;
+      }
+      .nav-lang { font-size: 11px; }
+      .nav-hamburger {
+        display: flex; flex-direction: column; gap: 5px;
+        cursor: pointer; padding: 4px; justify-self: start;
+        z-index: 99999; position: relative;
+      }
+      .nav-hamburger span {
+        display: block; width: 22px; height: 1.5px; background: #111;
+        transition: all 0.3s ease;
+      }
+      .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+      .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+      .footer-links { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+      .footer-links li { font-size: 10px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .content { padding: 2.5rem 1.25rem 0; }
+      .headline { font-size: clamp(28px, 8vw, 48px); margin-bottom: 2rem; }
+      .contact-blocks { flex-direction: column; gap: 0; }
+      a.contact-block { padding: 1.25rem 0; }
+      .block-icon { width: 24px; height: 24px; }
+      .block-label { font-size: 9px; }
+      .block-value { font-size: 14px; }
+      .form-section { margin-top: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .field-label { font-size: 9px; }
+      .field-input { font-size: 13px; padding: 0.75rem 0; }
+      .submit-btn { width: 100%; justify-content: center; }
+      .form-submit { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .submit-note { font-size: 10px; }
+    }
+  </style>
 
 <!-- Cookie Banner -->
 <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
