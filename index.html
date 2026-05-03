@@ -36,7 +36,7 @@
     .nav-links li { font-size: 15px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #111; cursor: pointer; transition: opacity 0.2s; }
     .nav-links > li:hover { opacity: 0.45; }
     .nav-links > li.menu-open:hover { opacity: 1; }
-    .nav-links li.active > a, .nav-links li.active { font-weight: 700; text-decoration: none !important; border-bottom: none !important; }
+    .nav-links li.active > a, .nav-links li.active { font-weight: 700 !important; text-decoration: none !important; border-bottom: none !important; }
 
     .nav-lang { font-size: 11px; color: #111; cursor: pointer; user-select: none; justify-self: end; }
     .nav-lang .active   { font-weight: 700; }
@@ -134,7 +134,7 @@
         position: relative;
       }
       .nav-logo svg { height: 22px; }
-            .nav-links {
+                  .nav-links {
         display: none;
         position: absolute;
         top: 100%; left: 0; right: 0;
@@ -154,26 +154,28 @@
       .nav-links > li:last-child { border-bottom: 0.5px solid #111; }
       .nav-links > li > a,
       .nav-links > li > #prod-btn {
-        display: block;
-        width: 100%;
-        height: 56px;
-        line-height: 56px;
+        display: block !important;
+        width: 100% !important;
+        height: 60px !important;
+        line-height: 60px !important;
         font-family: 'Inter', sans-serif !important;
-        font-size: 12px !important;
+        font-size: 18px !important;
         font-weight: 400 !important;
-        letter-spacing: 0.2em !important;
+        letter-spacing: 0.18em !important;
         text-align: center !important;
         text-transform: uppercase !important;
         color: #111 !important;
         padding: 0 !important;
         margin: 0 !important;
         text-decoration: none !important;
-        background: transparent;
-        transition: background 0.15s, color 0.15s;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
       }
-      .nav-links > li > a:active,
-      .nav-links > li > #prod-btn:active {
-        background: #111;
+      .nav-links > li > a:hover,
+      .nav-links > li > #prod-btn:hover {
+        background: #111 !important;
         color: #F0EDE4 !important;
       }
       #prod-menu {
@@ -192,22 +194,24 @@
       #prod-menu.mobile-open { display: flex !important; }
       #prod-menu a {
         display: block !important;
-        height: 48px !important;
-        line-height: 48px !important;
+        height: 50px !important;
+        line-height: 50px !important;
         font-family: 'Inter', sans-serif !important;
-        font-size: 11px !important;
+        font-size: 14px !important;
         font-weight: 400 !important;
-        letter-spacing: 0.2em !important;
+        letter-spacing: 0.18em !important;
         text-align: center !important;
         text-transform: uppercase !important;
         color: #111 !important;
         padding: 0 !important;
+        margin: 0 !important;
         border-bottom: 0.5px solid #111 !important;
         background: #E8E4DA !important;
-        transition: background 0.15s, color 0.15s;
+        text-decoration: none !important;
+        cursor: pointer !important;
       }
       #prod-menu a:last-child { border-bottom: none !important; }
-      #prod-menu a:active { background: #111 !important; color: #F0EDE4 !important; }
+      #prod-menu a:hover { background: #111 !important; color: #F0EDE4 !important; }
       .nav-lang { font-size: 13px; justify-self: end; }
       .nav-hamburger {
         display: flex; flex-direction: column; gap: 6px;
@@ -273,7 +277,7 @@
       <li class="active"><a href="index.html" style="text-decoration:none;color:inherit;">Home</a></li>
       <li><a href="about.html" style="text-decoration:none;color:inherit;">About</a></li>
       <li style="position:relative;">
-        <a href="#" id="prod-btn" style="text-decoration:none;color:inherit;font-weight:400;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;">Products</a>
+        <a href="#" id="prod-btn" style="text-decoration:none;color:inherit;">Products</a>
         <div id="prod-menu" style="display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background-color:#F0EDE4;background:#F0EDE4;border:0.5px solid #C8C4BB;box-shadow:0 4px 24px rgba(0,0,0,0.12);min-width:140px;flex-direction:column;z-index:10001;isolation:isolate;">
           <a href="products.html" style="padding:0.9rem 1.2rem;font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:#111;background:#F0EDE4;text-decoration:none;display:block;border-bottom:0.5px solid #C8C4BB;cursor:pointer;" onmouseover="this.style.background='#111';this.style.color='#F0EDE4'" onmouseout="this.style.background='#F0EDE4';this.style.color='#111'">Sofas</a>
           <a href="accessories.html" style="padding:0.9rem 1.2rem;font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:#111;background:#F0EDE4;text-decoration:none;display:block;cursor:pointer;" onmouseover="this.style.background='#111';this.style.color='#F0EDE4'" onmouseout="this.style.background='#F0EDE4';this.style.color='#111'">Accessories</a>
