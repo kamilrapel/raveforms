@@ -201,22 +201,26 @@
       }
       .nav-links.open { display: flex; }
       .nav-links > li {
-        font-size: 22px !important;
-        letter-spacing: 0.12em;
         border-bottom: 0.5px solid #111;
         width: 100%;
-        text-align: center;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .nav-links > li > a,
       .nav-links > li > #prod-btn {
-        display: block;
-        padding: 0.4rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        font-size: 22px !important;
-        letter-spacing: 0.12em;
+        height: 100%;
+        font-size: 13px !important;
+        font-weight: 400;
+        letter-spacing: 0.2em;
         text-align: center;
+        text-transform: uppercase;
       }
-      /* all items have border */
       #prod-menu {
         position: static !important;
         transform: none !important;
