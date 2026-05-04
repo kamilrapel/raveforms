@@ -131,11 +131,12 @@
         border: none !important;
       }
 
-      /* Carousel cell — full width, height matches image */
+      /* Carousel cell — wraps tightly around content */
       .drawing-cell {
         width: 100% !important;
         height: auto !important;
         min-height: unset !important;
+        max-height: 70vh !important;
         overflow: hidden !important;
         position: relative !important;
         flex-shrink: 0 !important;
@@ -149,6 +150,7 @@
       .drawing-area {
         width: 100% !important;
         height: auto !important;
+        max-height: 70vh !important;
         min-height: unset !important;
         padding: 0 !important;
         display: flex !important;
@@ -158,7 +160,7 @@
         scroll-snap-type: x mandatory !important;
         scroll-behavior: smooth !important;
         -webkit-overflow-scrolling: touch !important;
-        align-items: flex-start !important;
+        align-items: center !important;
         justify-content: flex-start !important;
         background: #F0EDE4 !important;
       }
@@ -170,10 +172,12 @@
         max-width: 100% !important;
         width: 100% !important;
         height: auto !important;
+        max-height: 70vh !important;
         scroll-snap-align: start !important;
         scroll-snap-stop: always !important;
         padding: 0 !important;
-        align-items: stretch !important;
+        display: flex !important;
+        align-items: center !important;
         justify-content: center !important;
       }
 
@@ -184,12 +188,15 @@
       }
 
       .carousel-slide.image-slide img {
-        width: 100% !important;
+        width: auto !important;
+        max-width: 100% !important;
         height: auto !important;
+        max-height: 70vh !important;
         display: block !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         padding: 0 !important;
         vertical-align: top !important;
+        object-fit: contain !important;
       }
 
       /* SVG plan slide needs minimum height to be readable */
