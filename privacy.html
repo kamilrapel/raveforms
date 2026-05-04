@@ -7,40 +7,23 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #F0EDE4; font-family: 'Inter', sans-serif; min-height: 100vh; }
-    .page { background: #F0EDE4; min-height: 100vh; display: flex; flex-direction: column; }
-
-    .nav {
-      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-      padding: 1.5rem 2.5rem; border-bottom: 0.5px solid #C8C4BB;
-      position: relative; z-index: 10000;
-      opacity: 0; animation: fadeDown 0.6s ease forwards 0.1s;
-    }
-    .nav-logo svg { height: 28px; width: auto; }
-    .nav-links { display: flex; gap: 4rem; list-style: none; }
-    .nav-links li { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #111; cursor: pointer; transition: opacity 0.2s; }
-    .nav-links li.active > a, .nav-links li.active { font-weight: 700 !important; text-decoration: none !important; border-bottom: none !important; }
-    @media (max-width: 768px) { .nav-links li.active > a { font-weight: 400 !important; height: 60px !important; line-height: 60px !important; display: block !important; } .nav-links li.active { border-bottom: 0.5px solid #111 !important; } }
-    .nav-links > li:hover { opacity: 0.45; }
-    .nav-links > li.menu-open:hover { opacity: 1; }
-    .nav-lang { font-size: 11px; color: #111; cursor: pointer; user-select: none; justify-self: end; }
-    .nav-lang .active { font-weight: 700; }
-    .nav-lang .inactive { font-weight: 400; }
+@media (max-width: 768px) {   }
+    
+    
+    
+    
+    
 
     main {
       flex: 1; max-width: 720px; margin: 0 auto;
       padding: 5rem 2.5rem 4rem;
       opacity: 0; animation: fadeIn 0.6s ease forwards 0.3s;
     }
-    .page-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
-      text-transform: uppercase; color: #111; margin-bottom: 1.5rem;
-    }
+    
     h1 {
       font-family: 'Space Mono', monospace;
       font-size: clamp(36px, 6vw, 72px);
@@ -74,140 +57,15 @@
     }
     .withdraw-btn:hover { background: transparent; color: #111; }
 
-    .footer {
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
-      padding: 1.5rem 2.5rem; border-top: 0.5px solid #C8C4BB;
-      opacity: 0; animation: fadeIn 0.6s ease forwards 0.8s;
-    }
-    .footer-links { display: flex; gap: 2.5rem; list-style: none; flex-wrap: wrap; justify-content: center; }
-    .footer-links li {
-      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: #111; cursor: pointer;
-      transition: opacity 0.2s; display: flex; align-items: center; gap: 7px;
-    }
-    .footer-links li:hover { opacity: 0.5; }
-    .footer-copy { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 400; color: #111; text-align: center; letter-spacing: 0.06em; }
+    
+    
+    
+    
+    
 
-    @keyframes fadeDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-      /* ═══════════════════════════════════════
-       MOBILE — shared nav + footer
-       ═══════════════════════════════════════ */
-    @media (max-width: 768px) {
-      .nav {
-        padding: 0 1.25rem;
-        height: 56px;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 0;
-        position: relative;
-      }
-      .nav-logo svg { height: 22px; }
-                  .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: #F0EDE4;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-        flex-direction: column;
-        z-index: 99998;
-        padding: 0;
-        list-style: none;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links > li {
-        width: 100%;
-        margin: 0; padding: 0;
-        border-top: 0.5px solid #111;
-      }
-      .nav-links > li:last-child { border-bottom: 0.5px solid #111; }
-      .nav-links > li > a,
-      .nav-links > li > #prod-btn {
-        display: block !important;
-        width: 100% !important;
-        height: 60px !important;
-        line-height: 60px !important;
-        font-family: 'Inter', sans-serif !important;
-        font-size: 18px !important;
-        font-weight: 400 !important;
-        letter-spacing: 0.18em !important;
-        text-align: center !important;
-        text-transform: uppercase !important;
-        color: #111 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        text-decoration: none !important;
-        background: transparent !important;
-        border: none !important;
-        cursor: pointer !important;
-        box-sizing: border-box !important;
-      }
-      .nav-links > li > a:hover,
-      .nav-links > li > #prod-btn:hover {
-        background: #111 !important;
-        color: #F0EDE4 !important;
-      }
-      #prod-menu {
-        position: static !important;
-        transform: none !important;
-        display: none;
-        flex-direction: column !important;
-        box-shadow: none !important;
-        border: none !important;
-        border-top: 0.5px solid #111 !important;
-        background: #E8E4DA !important;
-        isolation: auto !important;
-        min-width: unset !important;
-        left: auto !important;
-      }
-      #prod-menu.mobile-open { display: flex !important; }
-      #prod-menu a {
-        display: block !important;
-        height: 50px !important;
-        line-height: 50px !important;
-        font-family: 'Inter', sans-serif !important;
-        font-size: 14px !important;
-        font-weight: 400 !important;
-        letter-spacing: 0.18em !important;
-        text-align: center !important;
-        text-transform: uppercase !important;
-        color: #111 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        border-bottom: 0.5px solid #111 !important;
-        background: #E8E4DA !important;
-        text-decoration: none !important;
-        cursor: pointer !important;
-      }
-      #prod-menu a:last-child { border-bottom: none !important; }
-      #prod-menu a:hover { background: #111 !important; color: #F0EDE4 !important; }
-      .nav-lang { font-size: 13px; justify-self: end; }
-      .nav-hamburger {
-        display: flex; flex-direction: column; gap: 6px;
-        cursor: pointer; padding: 4px;
-        justify-self: start; align-self: center;
-        z-index: 99999; position: relative;
-        background: none; border: none; outline: none;
-      }
-      .nav-hamburger span {
-        display: block; width: 28px; height: 2.5px; background: #111;
-        transition: all 0.3s ease;
-      }
-      .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-      .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-      .footer {
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 1.25rem 1rem !important;
-      }
-      .footer-links { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
-      .footer-links li { font-size: 10px; }
-      .footer-copy { font-size: 9px; text-align: center; }
-    }
-    @media (min-width: 769px) {
-      .nav-hamburger { display: none; }
+     to { opacity:1; transform:translateY(0); } }
+     to { opacity:1; } }
+      
     }
 
     @media (max-width: 768px) {
@@ -218,7 +76,7 @@
       .withdraw-block { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .withdraw-btn { width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; }
     }
-  </style>
+</style>
 </head>
 <body>
 <div class="page">
@@ -248,9 +106,9 @@
       <li><a href="about.html" style="text-decoration:none;color:inherit;">About</a></li>
       <li style="position:relative;">
         <a href="#" id="prod-btn" style="text-decoration:none;color:inherit;">Products</a>
-        <div id="prod-menu" style="display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background-color:#F0EDE4;background:#F0EDE4;border:0.5px solid #C8C4BB;box-shadow:0 4px 24px rgba(0,0,0,0.12);min-width:140px;flex-direction:column;z-index:10001;isolation:isolate;">
-          <a href="products.html" style="padding:0.9rem 1.2rem;font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:#111;background:#F0EDE4;text-decoration:none;display:block;border-bottom:0.5px solid #C8C4BB;cursor:pointer;" onmouseover="this.style.background='#111';this.style.color='#F0EDE4'" onmouseout="this.style.background='#F0EDE4';this.style.color='#111'">Sofas</a>
-          <a href="accessories.html" style="padding:0.9rem 1.2rem;font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:#111;background:#F0EDE4;text-decoration:none;display:block;cursor:pointer;" onmouseover="this.style.background='#111';this.style.color='#F0EDE4'" onmouseout="this.style.background='#F0EDE4';this.style.color='#111'">Accessories</a>
+        <div id="prod-menu">
+          <a href="products.html">Sofas</a>
+          <a href="accessories.html">Accessories</a>
         </div>
       </li>
       <li><a href="contact.html" style="text-decoration:none;color:inherit;">Contact</a></li>
@@ -360,140 +218,7 @@
      COOKIE BANNER — GDPR compliant
      Paste this block just before </body> on every page
      ═══════════════════════════════════════════════════════ -->
-<style>
-  #cookie-banner {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999;
-    background: #111; color: #F0EDE4;
-    padding: 1.25rem 2.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 2rem; flex-wrap: wrap;
-    font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.02em;
-    border-top: 0.5px solid #333;
-    transform: translateY(100%); transition: transform 0.4s ease;
-  }
-  #cookie-banner.visible { transform: translateY(0); }
-  .cookie-text { flex: 1; min-width: 200px; line-height: 1.7; }
-  .cookie-text a { color: #F0EDE4; text-decoration: underline; }
-  .cookie-text a:hover { opacity: 0.7; }
-  .cookie-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .cookie-btn {
-    font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 400;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0 1.25rem; height: 36px; border-radius: 999px; cursor: pointer;
-    transition: background 0.2s, color 0.2s; white-space: nowrap;
-  }
-  .cookie-btn-accept { background: #F0EDE4; color: #111; border: 1px solid #F0EDE4; }
-  .cookie-btn-accept:hover { background: transparent; color: #F0EDE4; }
-  .cookie-btn-reject { background: transparent; color: #F0EDE4; border: 1px solid #555; }
-  .cookie-btn-reject:hover { border-color: #F0EDE4; }
-  .cookie-btn-settings { background: transparent; color: #F0EDE4; border: 1px solid #555; }
-  .cookie-btn-settings:hover { border-color: #F0EDE4; }
 
-  /* Settings modal */
-  #cookie-modal {
-    display: none; position: fixed; inset: 0; z-index: 100000;
-    background: rgba(0,0,0,0.5); align-items: center; justify-content: center;
-  }
-  #cookie-modal.open { display: flex; }
-  .cookie-modal-box {
-    background: #F0EDE4; color: #111; max-width: 500px; width: 90%;
-    padding: 2.5rem; font-family: 'Inter', sans-serif;
-  }
-  .cookie-modal-title {
-    font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 400; letter-spacing: 0.1em;
-    text-transform: uppercase; margin-bottom: 1.5rem;
-  }
-  .cookie-category { border-top: 0.5px solid #C8C4BB; padding: 1.25rem 0; }
-  .cookie-category:last-of-type { border-bottom: 0.5px solid #C8C4BB; }
-  .cookie-cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-  .cookie-cat-name { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
-  .cookie-cat-desc { font-family: 'Space Mono', monospace; font-size: 10px; line-height: 1.7; color: #555; }
-  .cookie-toggle {
-    position: relative; width: 36px; height: 20px; flex-shrink: 0;
-  }
-  .cookie-toggle input { opacity: 0; width: 0; height: 0; }
-  .cookie-toggle-slider {
-    position: absolute; inset: 0; border-radius: 999px;
-    background: #C8C4BB; cursor: pointer; transition: background 0.2s;
-  }
-  .cookie-toggle-slider::before {
-    content: ''; position: absolute; width: 14px; height: 14px;
-    border-radius: 50%; background: white;
-    top: 3px; left: 3px; transition: transform 0.2s;
-  }
-  .cookie-toggle input:checked + .cookie-toggle-slider { background: #111; }
-  .cookie-toggle input:checked + .cookie-toggle-slider::before { transform: translateX(16px); }
-  .cookie-toggle input:disabled + .cookie-toggle-slider { cursor: not-allowed; opacity: 0.5; }
-  .cookie-modal-footer { display: flex; gap: 0.75rem; margin-top: 1.5rem; justify-content: flex-end; }
-  .cookie-modal-btn {
-    font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 400;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0 1.25rem; height: 36px; border-radius: 999px; cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-  }
-  .cookie-modal-save { background: #111; color: #F0EDE4; border: 1px solid #111; }
-  .cookie-modal-save:hover { background: transparent; color: #111; }
-
-  /* Withdraw link */
-  #cookie-withdraw {
-    font-size: 9px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #C8C4BB; cursor: pointer; text-decoration: underline;
-    display: inline-block;
-  }
-  #cookie-withdraw:hover { color: #111; }
-    /* ═══════════════════════════════════════
-       MOBILE — shared nav + footer
-       ═══════════════════════════════════════ */
-    @media (max-width: 768px) {
-      .nav {
-        padding: 0 1.25rem;
-        height: 56px;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 0;
-        position: relative;
-      }
-      .nav-logo svg { height: 22px; }
-            
-      #prod-menu a:active { background: #111 !important; color: #F0EDE4 !important; }
-      .nav-lang { font-size: 13px; justify-self: end; }
-      .nav-hamburger {
-        display: flex; flex-direction: column; gap: 6px;
-        cursor: pointer; padding: 4px;
-        justify-self: start; align-self: center;
-        z-index: 99999; position: relative;
-        background: none; border: none; outline: none;
-      }
-      .nav-hamburger span {
-        display: block; width: 28px; height: 2.5px; background: #111;
-        transition: all 0.3s ease;
-      }
-      .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-      .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-      .footer {
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 1.25rem 1rem !important;
-      }
-      .footer-links { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
-      .footer-links li { font-size: 10px; }
-      .footer-copy { font-size: 9px; text-align: center; }
-    }
-    @media (min-width: 769px) {
-      .nav-hamburger { display: none; }
-    }
-
-    @media (max-width: 768px) {
-      main { padding: 2.5rem 1.25rem 3rem; }
-      h1 { font-size: clamp(28px, 8vw, 48px); }
-      h2 { font-size: 10px; }
-      p, ul { font-size: 10px; }
-      .withdraw-block { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .withdraw-btn { width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; }
-    }
-  </style>
 
 <!-- Cookie Banner -->
 <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
