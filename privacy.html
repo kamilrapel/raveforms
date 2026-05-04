@@ -35,8 +35,18 @@ main {
     ul { font-family: 'Space Mono', monospace; font-size: 11px; line-height: 1.85; color: #111; margin: 0.5rem 0 1rem 1.5rem; }
     ul li { margin-bottom: 0.3rem; }
     a { color: #111; }
-    .footer-links, .footer-links li, .footer-links li a, .footer-copy {
+    /* Footer must match other pages — override Space Mono from ul/li rules */
+    footer .footer-links,
+    footer .footer-links li,
+    footer .footer-links li a,
+    footer .footer-copy,
+    footer .footer-copy a {
       font-family: 'Inter', sans-serif !important;
+      font-size: 11px !important;
+    }
+    footer .footer-copy,
+    footer .footer-copy a {
+      font-size: 10px !important;
     }
     .updated { font-family: 'Space Mono', monospace; font-size: 10px; color: #C8C4BB; margin-bottom: 3rem; display: block; }
     .withdraw-block {
