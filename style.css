@@ -194,7 +194,7 @@ body {
 /* ============================================================
    MOBILE — max-width 768px
    ============================================================ */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   /* Nav */
   .nav {
@@ -355,6 +355,6 @@ body {
 }
 
 /* Hide hamburger on desktop */
-@media (min-width: 769px) {
+@media (min-width: 901px) {
   .nav-hamburger { display: none; }
 }
