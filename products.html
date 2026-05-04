@@ -237,15 +237,18 @@
         vertical-align: top !important;
       }
 
-      /* SVG plan slide — let it size naturally */
+      /* SVG plan slide — centered */
       .carousel-slide:not(.image-slide) {
         min-height: unset !important;
         height: auto !important;
+        display: flex !important;
         align-items: center !important;
+        justify-content: center !important;
+        padding: 1.5rem 0 !important;
       }
 
       /* SVG plan slide */
-      .carousel-slide svg { max-width: 63% !important; height: auto !important; }
+      .carousel-slide svg { max-width: 63% !important; height: auto !important; display: block !important; margin: 0 auto !important; }
 
       /* Arrows */
       .carousel-arrow {
