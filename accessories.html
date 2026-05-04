@@ -132,6 +132,7 @@
       .main-panel {
         display: flex !important;
         flex-direction: column !important;
+        align-items: flex-start !important;
         width: 100% !important;
         background: #F0EDE4 !important;
         gap: 0 !important;
@@ -219,6 +220,9 @@
         height: auto !important;
         min-height: unset !important;
       }
+
+      /* Hide SVG plan slide on mobile — not needed for accessories */
+      #drawing-slide { display: none !important; }
 
       /* SVG plan slide */
       .carousel-slide svg { max-width: 85% !important; height: auto !important; }
