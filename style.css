@@ -199,7 +199,6 @@ body {
 
   /* Active nav item — no bold on mobile (prevents height shifts) */
   .nav-links li.active > a { font-weight: 400 !important; }
-  .nav-links li.active { border-bottom: 0.5px solid #111 !important; }
 
   /* Hamburger button */
   .nav-hamburger {
@@ -218,27 +217,37 @@ body {
   .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
   /* Dropdown menu */
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: #F0EDE4;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    flex-direction: column;
-    z-index: 99998;
-    padding: 0; margin: 0; list-style: none;
+  /* Dropdown container */
+  ul.nav-links {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important; left: 0 !important; right: 0 !important;
+    width: 100% !important;
+    background: #F0EDE4 !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important;
+    flex-direction: column !important;
+    z-index: 99998 !important;
+    padding: 0 !important; margin: 0 !important;
+    list-style: none !important;
+    gap: 0 !important;
   }
-  .nav-links.open { display: flex; }
+  ul.nav-links.open { display: flex !important; }
 
-  .nav-links > li {
-    width: 100%; margin: 0; padding: 0;
-    border-top: 0.5px solid #111;
-    list-style: none;
+  /* Each <li> — clean wrapper, no padding, no border */
+  ul.nav-links > li {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    list-style: none !important;
+    position: relative !important;
+    font-size: 0 !important; /* prevent inline-block whitespace */
   }
-  .nav-links > li:last-child { border-bottom: 0.5px solid #111; }
 
-  .nav-links > li > a,
-  .nav-links > li > #prod-btn {
+  /* The clickable cell — single source of border + height */
+  ul.nav-links > li > a,
+  ul.nav-links > li > #prod-btn {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -257,28 +266,44 @@ body {
     text-decoration: none !important;
     background: transparent !important;
     border: none !important;
+    border-top: 0.5px solid #111 !important;
     cursor: pointer !important;
   }
-  .nav-links > li > a:hover,
-  .nav-links > li > #prod-btn:hover {
+  /* Last <li>'s clickable cell adds bottom border */
+  ul.nav-links > li:last-child > a {
+    border-bottom: 0.5px solid #111 !important;
+  }
+
+  ul.nav-links > li > a:hover,
+  ul.nav-links > li > #prod-btn:hover,
+  ul.nav-links > li > a:active,
+  ul.nav-links > li > #prod-btn:active {
     background: #111 !important;
     color: #F0EDE4 !important;
+  }
+
+  /* Active state — no bold (prevents height shift) */
+  ul.nav-links > li.active > a {
+    font-weight: 400 !important;
   }
 
   /* Products submenu */
   #prod-menu {
     position: static !important;
     transform: none !important;
-    display: none;
+    display: none !important;
     flex-direction: column !important;
     box-shadow: none !important;
     border: none !important;
-    border-top: 0.5px solid #111 !important;
     background: #E8E4DA !important;
     min-width: unset !important;
+    width: 100% !important;
     left: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   #prod-menu.mobile-open { display: flex !important; }
+
   #prod-menu a {
     display: flex !important;
     align-items: center !important;
@@ -295,13 +320,17 @@ body {
     color: #111 !important;
     padding: 0 !important;
     margin: 0 !important;
-    border-bottom: 0.5px solid #111 !important;
+    border: none !important;
+    border-top: 0.5px solid #111 !important;
     background: #E8E4DA !important;
     text-decoration: none !important;
     cursor: pointer !important;
   }
-  #prod-menu a:last-child { border-bottom: none !important; }
-  #prod-menu a:hover { background: #111 !important; color: #F0EDE4 !important; }
+  #prod-menu a:hover,
+  #prod-menu a:active {
+    background: #111 !important;
+    color: #F0EDE4 !important;
+  }
 
   /* Footer */
   .footer, .hero-footer {

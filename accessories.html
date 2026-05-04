@@ -128,10 +128,10 @@
         width: 100% !important;
       }
 
-      /* Carousel cell — full width, square-ish */
+      /* Carousel cell — full width, height matches image */
       .drawing-cell {
         width: 100% !important;
-        height: 80vw !important;
+        height: auto !important;
         min-height: unset !important;
         overflow: hidden !important;
         position: relative !important;
@@ -141,7 +141,7 @@
       /* Drawing area = scrollable carousel strip */
       .drawing-area {
         width: 100% !important;
-        height: 80vw !important;
+        height: auto !important;
         min-height: unset !important;
         padding: 0 !important;
         display: flex !important;
@@ -155,17 +155,17 @@
         justify-content: flex-start !important;
       }
 
-      /* Each slide — exact viewport width */
+      /* Each slide — exact viewport width, height = image height */
       .carousel-slide {
         flex: 0 0 100% !important;
         min-width: 100% !important;
         max-width: 100% !important;
         width: 100% !important;
-        height: 80vw !important;
+        height: auto !important;
         scroll-snap-align: start !important;
         scroll-snap-stop: always !important;
         padding: 0 !important;
-        align-items: center !important;
+        align-items: stretch !important;
         justify-content: center !important;
       }
 
@@ -175,9 +175,15 @@
 
       .carousel-slide.image-slide img {
         width: 100% !important;
-        height: 80vw !important;
+        height: auto !important;
         object-fit: contain !important;
         display: block !important;
+      }
+
+      /* SVG plan slide needs minimum height to be readable */
+      .carousel-slide:not(.image-slide) {
+        min-height: 60vw !important;
+        align-items: center !important;
       }
 
       /* SVG plan slide */
@@ -231,16 +237,16 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html" style="text-decoration:none;color:inherit;">Home</a></li>
-      <li><a href="about.html" style="text-decoration:none;color:inherit;">About</a></li>
-      <li style="position:relative;" class="active">
-        <a href="#" id="prod-btn" style="text-decoration:none;color:inherit;">Products</a>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="active">
+        <a href="#" id="prod-btn">Products</a>
         <div id="prod-menu">
           <a href="products.html">Sofas</a>
           <a href="accessories.html">Accessories</a>
         </div>
       </li>
-      <li><a href="contact.html" style="text-decoration:none;color:inherit;">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-lang" id="lang-toggle">
       <span class="active" id="lang-en">EN</span>
