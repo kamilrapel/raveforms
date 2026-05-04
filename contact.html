@@ -112,10 +112,26 @@
     @media (max-width: 768px) {
       .content { padding: 2.5rem 1.25rem 0; }
       .headline { font-size: clamp(28px, 8vw, 48px); margin-bottom: 2rem; }
-      .contact-blocks { grid-template-columns: 1fr; gap: 1px; }
-      .contact-block { padding: 1.25rem 1.25rem; align-items: center; text-align: center; flex-direction: row; gap: 1rem; }
-      .block-icon { width: 24px; height: 24px; flex-shrink: 0; }
-      .block-label { font-size: 11px; font-weight: 700; }
+      .contact-blocks {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        background: #C8C4BB !important;
+        margin-bottom: 2rem !important;
+      }
+      .contact-block {
+        flex: 1 !important;
+        padding: 1.25rem 0.5rem !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+      }
+      .block-icon { width: 24px; height: 24px; }
+      .block-label { font-size: 9px; }
       .block-value { display: none; }
       .form-section { margin-top: 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
