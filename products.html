@@ -230,9 +230,10 @@
         vertical-align: top !important;
       }
 
-      /* SVG plan slide needs minimum height to be readable */
+      /* SVG plan slide — let it size naturally */
       .carousel-slide:not(.image-slide) {
-        min-height: 60vw !important;
+        min-height: unset !important;
+        height: auto !important;
         align-items: center !important;
       }
 

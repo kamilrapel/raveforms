@@ -61,6 +61,13 @@
     }
     .carousel-slide.image-slide { padding: 0; }
     .carousel-slide.pillow-slide { display: flex; }
+    #drawing-slide {
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F0EDE4;
+    }
     .carousel-slide.image-slide img {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
@@ -146,7 +153,8 @@
       }
 
       /* Drawing area = scrollable carousel strip */
-      .drawing-area {
+      .drawing-area,
+      .drawing-area.has-gallery {
         width: 100% !important;
         height: auto !important;
         min-height: unset !important;
@@ -192,10 +200,16 @@
         vertical-align: top !important;
       }
 
-      /* SVG plan slide needs minimum height to be readable */
+      /* SVG plan slide — let it size naturally */
       .carousel-slide:not(.image-slide) {
-        min-height: 60vw !important;
+        min-height: unset !important;
+        height: auto !important;
         align-items: center !important;
+      }
+      #drawing-slide {
+        padding: 1rem !important;
+        height: auto !important;
+        min-height: unset !important;
       }
 
       /* SVG plan slide */
@@ -212,7 +226,7 @@
 
       /* Hide scrollbar on mobile */
       .drawing-area.has-gallery::-webkit-scrollbar { height: 0 !important; display: none !important; }
-      .drawing-area.has-gallery { scrollbar-width: none !important; }
+      .drawing-area.has-gallery { scrollbar-width: none !important; align-items: flex-start !important; }
 
       /* Info panel below */
       .info-panel {
@@ -291,7 +305,7 @@
           <div class="carousel-slide image-slide pillow-slide"><img src="images/pillow_2.jpg" alt="Pillow - corduroy" loading="lazy"></div>
           <div class="carousel-slide image-slide pillow-slide"><img src="images/pillow_3.jpg" alt="Pillow - leather" loading="lazy"></div>
           <div class="carousel-slide image-slide pillow-slide"><img src="images/pillow_4.jpg" alt="Pillow - terracotta" loading="lazy"></div>
-          <div class="carousel-slide" id="drawing-slide" style="padding:3rem;display:flex;align-items:center;justify-content:center;background:#F0EDE4;">
+          <div class="carousel-slide" id="drawing-slide">
             <svg style="width:100%;max-width:380px;height:auto;display:block;" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.18 461.18">
   <defs>
     <style>
