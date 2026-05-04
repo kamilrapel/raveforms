@@ -113,11 +113,11 @@
     @media (max-width: 768px) {
       .content { padding: 2.5rem 1.25rem 0; }
       .headline { font-size: clamp(28px, 8vw, 48px); margin-bottom: 2rem; }
-      .contact-blocks { flex-direction: column; gap: 0; }
-      a.contact-block { padding: 1.25rem 1.25rem; align-items: center; text-align: center; }
-      .block-icon { width: 28px; height: 28px; }
-      .block-label { font-size: 9px; }
-      .block-value { font-size: 13px; display: none; }
+      .contact-blocks { grid-template-columns: 1fr; gap: 1px; }
+      .contact-block { padding: 1.25rem 1.25rem; align-items: center; text-align: center; flex-direction: row; gap: 1rem; }
+      .block-icon { width: 24px; height: 24px; flex-shrink: 0; }
+      .block-label { font-size: 11px; font-weight: 700; }
+      .block-value { display: none; }
       .form-section { margin-top: 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
       .field-label { font-size: 9px; }

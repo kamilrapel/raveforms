@@ -159,9 +159,18 @@
     }
 
     @media (max-width: 768px) {
-      .content { padding: 3rem 1.25rem 2rem; }
+      .content {
+        padding: 3rem 1.25rem 2rem;
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .section-line { margin-left: auto; margin-right: auto; }
+      .body-text { max-width: 100%; }
       .headline { font-size: clamp(28px, 8vw, 48px); margin-bottom: 2rem; }
-      .values-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+      .stat-row { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; gap: 1px; margin-top: 2rem; }
+      .value-item { text-align: left; }
       .value-title { font-size: 11px; }
       .value-desc { font-size: 11px; }
     }
