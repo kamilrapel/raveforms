@@ -160,16 +160,16 @@
 
     @media (max-width: 768px) {
       .content {
-        padding: 3rem 1.25rem 2rem;
+        padding: 3rem 1.25rem 2rem 1.25rem !important;
         max-width: 100%;
         margin: 0 auto;
-        text-align: center;
+        text-align: left;
       }
-      .section-line { margin-left: auto; margin-right: auto; }
+      .section-line { margin-left: 0; }
       .body-text { max-width: 100%; }
       .headline { font-size: clamp(28px, 8vw, 48px); margin-bottom: 2rem; }
-      .stat-row { grid-template-columns: 1fr; }
-      .values-grid { grid-template-columns: 1fr; gap: 1px; margin-top: 2rem; }
+      .stat-row { grid-template-columns: 1fr 1fr 1fr; }
+      .values-grid { grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 2rem; }
       .value-item { text-align: left; }
       .value-title { font-size: 11px; }
       .value-desc { font-size: 11px; }

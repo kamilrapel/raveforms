@@ -116,56 +116,96 @@
     /* Footer */
       
     }
-
     @media (max-width: 768px) {
       .top-bar { padding: 1.25rem 1.25rem; }
       .product-label { font-size: clamp(18px, 5vw, 26px); }
+      .config-btn { font-size: clamp(18px, 5vw, 28px); }
+      .config-selector { gap: 1rem; }
 
+      /* Stack carousel above info panel */
       .main-panel {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
       }
 
+      /* Carousel cell — full width, square-ish */
       .drawing-cell {
-        width: 100%;
-        min-height: 75vw;
-        overflow: hidden;
-      }
-      .drawing-area {
-        width: 100%;
-        min-height: 75vw;
-      }
-      .drawing-area.has-gallery {
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-      }
-      .carousel-slide {
-        flex: 0 0 100vw;
-        min-width: 100vw;
-        max-width: 100vw;
-        scroll-snap-align: start;
-      }
-      .carousel-slide.image-slide img {
-        width: 100vw;
-        height: 75vw;
-        object-fit: cover;
+        width: 100% !important;
+        height: 80vw !important;
+        min-height: unset !important;
+        overflow: hidden !important;
+        position: relative !important;
+        flex-shrink: 0 !important;
       }
 
+      /* Drawing area = scrollable carousel strip */
+      .drawing-area {
+        width: 100% !important;
+        height: 80vw !important;
+        min-height: unset !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: scroll !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+      }
+
+      /* Each slide — exact viewport width */
+      .carousel-slide {
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 80vw !important;
+        scroll-snap-align: start !important;
+        scroll-snap-stop: always !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .carousel-slide.image-slide {
+        padding: 0 !important;
+      }
+
+      .carousel-slide.image-slide img {
+        width: 100% !important;
+        height: 80vw !important;
+        object-fit: cover !important;
+        display: block !important;
+      }
+
+      /* SVG plan slide */
+      .carousel-slide svg { max-width: 85% !important; height: auto !important; }
+
+      /* Arrows */
+      .carousel-arrow {
+        width: 36px !important; height: 36px !important;
+        min-width: 36px !important; padding: 0 !important;
+        font-size: 13px !important;
+      }
+      .carousel-arrow.prev { left: 0.5rem !important; }
+      .carousel-arrow.next { right: 0.5rem !important; }
+
+      /* Info panel below */
       .info-panel {
-        border-left: none;
-        border-top: 0.5px solid #C8C4BB;
-        padding: 1.5rem 1.25rem;
+        border-left: none !important;
+        border-top: 0.5px solid #C8C4BB !important;
+        padding: 1.5rem 1.25rem !important;
+        width: 100% !important;
       }
       .config-name { font-size: 18px; }
       .dim-label { font-size: 9px; }
       .dim-value { font-size: 11px; }
       .variant-desc { font-size: 10px; }
       .order-btn { width: 100%; justify-content: center; }
-
-      .carousel-arrow { width: 36px; height: 36px; min-width: 36px; padding: 0; font-size: 13px; }
-      .carousel-arrow.prev { left: 0.5rem; }
-      .carousel-arrow.next { right: 0.5rem; }
     }
 </style>
 </head>
