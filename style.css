@@ -358,3 +358,25 @@ body {
 @media (min-width: 901px) {
   .nav-hamburger { display: none; }
 }
+
+/* Landscape phone fix */
+@media (max-width: 900px) and (orientation: landscape) {
+  .nav {
+    padding: 0 1.5rem;
+    height: 50px;
+  }
+  .nav-logo svg { height: 20px; }
+  ul.nav-links.open {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+  ul.nav-links > li > a,
+  ul.nav-links > li > #prod-btn {
+    height: 50px !important;
+    font-size: 14px !important;
+  }
+  #prod-menu a {
+    height: 44px !important;
+    font-size: 12px !important;
+  }
+}
