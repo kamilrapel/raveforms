@@ -196,8 +196,9 @@
         scroll-snap-type: x mandatory !important;
         scroll-behavior: smooth !important;
         -webkit-overflow-scrolling: touch !important;
-        align-items: stretch !important;
+        align-items: flex-start !important;
         justify-content: flex-start !important;
+        background: #F0EDE4 !important;
       }
 
       /* Each slide — exact viewport width, height = image height */
@@ -216,13 +217,17 @@
 
       .carousel-slide.image-slide {
         padding: 0 !important;
+        background: #F0EDE4 !important;
+        line-height: 0 !important;
       }
 
       .carousel-slide.image-slide img {
         width: 100% !important;
         height: auto !important;
-        object-fit: contain !important;
         display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        vertical-align: top !important;
       }
 
       /* SVG plan slide needs minimum height to be readable */
@@ -288,7 +293,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li class="active">
+      <li class="active" style="position:relative;">
         <a href="#" id="prod-btn">Products</a>
         <div id="prod-menu">
           <a href="products.html">Sofas</a>

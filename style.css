@@ -63,10 +63,12 @@ body {
 .nav-lang .inactive { font-weight: 400; }
 
 /* Desktop dropdown */
+.nav-links li:has(#prod-menu) { position: relative; }
+
 #prod-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 10px); left: 50%;
+  top: calc(100% + 6px); left: 50%;
   transform: translateX(-50%);
   background: #F0EDE4;
   border: 0.5px solid #C8C4BB;
