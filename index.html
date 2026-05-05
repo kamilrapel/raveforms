@@ -275,15 +275,19 @@
         transform: none;
       }
       .cap-1 p { font-size: clamp(15px, 5vw, 22px); }
+      /* Mobile: swap cap2 (logo) and cap4 (Oversized) positions */
       .cap-2 {
-        top: 12%; left: 50%;
+        bottom: 22%; top: auto;
+        left: 50%;
         transform: translateX(-50%);
         width: clamp(140px, 55vw, 280px);
       }
       .cap-4 {
-        bottom: 22%; left: 50%;
+        top: 12%; bottom: auto;
+        left: 50%;
         transform: translateX(-50%);
         text-align: center;
+        right: auto;
       }
       .cap-4 p { font-size: clamp(14px, 4vw, 20px); line-height: 1.8; }
       .cap-5 {
