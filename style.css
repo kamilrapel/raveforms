@@ -51,6 +51,7 @@ body {
 }
 .nav-links > li:hover { opacity: 0.45; }
 .nav-links > li.menu-open:hover { opacity: 1; }
+.nav-links > li:has(#prod-menu):hover { opacity: 1; }
 .nav-links li.active > a,
 .nav-links li.active > a:visited,
 .nav-links li.active { font-weight: 700 !important; text-decoration: none !important; border-bottom: none !important; color: #111 !important; }
