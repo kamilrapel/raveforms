@@ -27,13 +27,15 @@ body {
   align-items: center;
   padding: 1.5rem 2.5rem;
   border-bottom: 0.5px solid #C8C4BB;
-  position: static;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 10000;
+  background: #F0EDE4;
   opacity: 0;
   animation: fadeDown 0.6s ease forwards 0.1s;
 }
 
-.nav-logo { cursor: pointer; }
+.page { padding-top: 80px; }.nav-logo { cursor: pointer; }
 .nav-logo svg { height: 28px; width: auto; }
 
 .nav-links { display: flex; gap: 4rem; list-style: none; }
@@ -204,8 +206,12 @@ body {
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 0;
-    position: relative;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 10000;
+    background: #F0EDE4;
   }
+  .page { padding-top: 56px; }
   .nav-logo svg { height: 22px; }
   .nav-lang { font-size: 13px; justify-self: end; }
 
