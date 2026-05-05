@@ -53,6 +53,12 @@
       opacity: 0;
       transition: opacity 0.4s ease;
     }
+    #cap1 { opacity: 1; }
+
+    .cap-1 {
+      top: 8%; left: 5%;
+      transform: none;
+    }
     .cap-1 {
       top: 65%; left: 7%;
       transform: translateY(-50%);
@@ -83,7 +89,7 @@
       text-transform: uppercase; color: rgba(17,17,17,0.4);
     }
     .cap-4 {
-      bottom: 12%; left: 50%;
+      bottom: 28%; left: 50%;
       transform: translateX(-50%);
       text-align: center;
     }
@@ -95,7 +101,7 @@
       letter-spacing: 0.06em;
     }
     .cap-5 {
-      bottom: 13%; left: 50%;
+      bottom: 10%; left: 50%;
       transform: translateX(-50%);
       display: flex; gap: 1rem;
       pointer-events: all;
@@ -275,15 +281,15 @@
         transform: none;
       }
       .cap-1 p { font-size: clamp(15px, 5vw, 22px); }
-      /* Mobile: swap cap2 (logo) and cap4 (Oversized) positions */
+      /* Mobile: logo na górze najpierw, Oversized wjeżdża pod nim */
       .cap-2 {
-        bottom: 22%; top: auto;
+        top: 8%; bottom: auto;
         left: 50%;
         transform: translateX(-50%);
         width: clamp(140px, 55vw, 280px);
       }
       .cap-4 {
-        top: 12%; bottom: auto;
+        top: 30%; bottom: auto;
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
@@ -396,13 +402,13 @@
     <div class="product-strip">
       <a href="products.html" class="product-card">
         <span class="product-card-label">Sofas</span>
-        <div class="product-card-name">Sofas</div>
+        <div class="product-card-name">Cloud Form</div>
         <p class="product-card-desc">Three configurations. L-shape, Linear, U-shape. Mattress-scale volumes in linen, corduroy or leather.</p>
         <span class="product-card-arrow">→</span>
       </a>
       <a href="accessories.html" class="product-card">
         <span class="product-card-label">Accessories</span>
-        <div class="product-card-name">Accessories</div>
+        <div class="product-card-name">Pillow</div>
         <p class="product-card-desc">Oversized cushion designed to complement the Cloud Form. Available in all fabric options.</p>
         <span class="product-card-arrow">→</span>
       </a>
@@ -479,11 +485,11 @@
   var section = document.getElementById('scrub-section');
   var hint    = document.getElementById('scroll-hint');
   var caps    = [
-    {el:document.getElementById('cap1'),from:0.04,to:0.28},
-    {el:document.getElementById('cap2'),from:0.30,to:0.56},
-    {el:document.getElementById('cap3'),from:0.33,to:0.56},
-    {el:document.getElementById('cap4'),from:0.58,to:0.88},
-    {el:document.getElementById('cap5'),from:0.82,to:1.00,sticky:true},
+    {el:document.getElementById('cap1'),from:0.00,to:0.40},
+    {el:document.getElementById('cap2'),from:0.25,to:0.65},
+    {el:document.getElementById('cap3'),from:0.28,to:0.65},
+    {el:document.getElementById('cap4'),from:0.50,to:0.95},
+    {el:document.getElementById('cap5'),from:0.78,to:1.00,sticky:true},
   ];
 
   var BASE  = 'https://kamilrapel.github.io/raveforms/frames/frame_';
@@ -543,8 +549,11 @@
     caps.forEach(function(c){
       var op=0;
       if(c.sticky && p>=c.from){
-        // Show and keep visible once reached
         op = Math.min(1,(p-c.from)/f);
+      } else if(c.el.id==='cap1'){
+        // Always visible, only fades out at end
+        op = p<=c.to ? Math.min(1,(c.to-p)/f) : 0;
+        if(p<c.to-f) op=1;
       } else if(p>=c.from&&p<=c.to){
         op=Math.min(Math.min(1,(p-c.from)/f),Math.min(1,(c.to-p)/f));
       }
