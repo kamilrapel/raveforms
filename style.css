@@ -29,7 +29,7 @@ body {
   border-bottom: 0.5px solid #C8C4BB;
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 10000;
+  z-index: 99997;
   background: #F0EDE4;
   opacity: 0;
   animation: fadeDown 0.6s ease forwards 0.1s;
