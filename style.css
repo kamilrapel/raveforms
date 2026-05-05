@@ -33,9 +33,10 @@ body {
   z-index: 99997;
   background: #F0EDE4;
 }
+.nav-logo { cursor: pointer; overflow: visible; }
+.nav-logo svg { height: 28px; width: auto; overflow: visible; display: block; }
 
-.page { padding-top: 80px; }.nav-logo { cursor: pointer; }
-.nav-logo svg { height: 28px; width: auto; }
+.page { padding-top: 80px; }
 
 .nav-links { display: flex; gap: 4rem; list-style: none; }
 
@@ -291,12 +292,17 @@ body {
     border-bottom: 0.5px solid #111 !important;
   }
 
+  ul.nav-links > li:hover {
+    opacity: 1 !important;
+  }
+
   ul.nav-links > li > a:hover,
   ul.nav-links > li > #prod-btn:hover,
   ul.nav-links > li > a:active,
   ul.nav-links > li > #prod-btn:active {
     background: #111 !important;
     color: #F0EDE4 !important;
+    opacity: 1 !important;
   }
 
   /* Active state — no bold (prevents height shift) */
