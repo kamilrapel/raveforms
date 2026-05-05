@@ -49,7 +49,7 @@
       transition: opacity 0.4s ease;
     }
     .cap-1 {
-      top: 50%; left: 7%;
+      top: 65%; left: 7%;
       transform: translateY(-50%);
     }
     .cap-1 p {
@@ -78,9 +78,9 @@
       text-transform: uppercase; color: rgba(17,17,17,0.4);
     }
     .cap-4 {
-      top: 50%; right: 7%;
-      transform: translateY(-50%);
-      text-align: right;
+      bottom: 12%; left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
     }
     .cap-4 p {
       font-family: 'Space Mono', monospace;
@@ -261,10 +261,17 @@
     /* ─── MOBILE ─────────────────────────────────────────── */
     @media (max-width: 900px) {
       #scrub-img { width: 95%; }
-      .cap-1 { left: 5%; }
+      .cap-1 {
+        top: 10%; left: 5%;
+        transform: none;
+      }
       .cap-1 p { font-size: clamp(15px, 5vw, 22px); }
-      .cap-4 { right: 5%; }
-      .cap-4 p { font-size: clamp(11px, 3.5vw, 16px); }
+      .cap-4 {
+        bottom: 8%; left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+      }
+      .cap-4 p { font-size: clamp(14px, 4vw, 20px); line-height: 1.8; }
       .cap-5 { flex-direction: column; align-items: center; bottom: 8%; }
       .hero-statement { padding: 3.5rem 1.5rem 2.5rem; }
       .product-strip { grid-template-columns: 1fr; }
@@ -363,7 +370,7 @@
     <div class="product-strip">
       <a href="products.html" class="product-card">
         <span class="product-card-label">01 — Sofas</span>
-        <div class="product-card-name">Bangkok<br>Form</div>
+        <div class="product-card-name">Cloud<br>Form</div>
         <p class="product-card-desc">Three configurations. L-shape, Linear, U-shape. Mattress-scale volumes in linen, corduroy or leather.</p>
         <span class="product-card-arrow">→</span>
       </a>
@@ -449,7 +456,7 @@
     {el:document.getElementById('cap1'),from:0.04,to:0.28},
     {el:document.getElementById('cap2'),from:0.30,to:0.56},
     {el:document.getElementById('cap3'),from:0.33,to:0.56},
-    {el:document.getElementById('cap4'),from:0.60,to:0.84},
+    {el:document.getElementById('cap4'),from:0.58,to:0.90},
     {el:document.getElementById('cap5'),from:0.87,to:1.00,sticky:true},
   ];
 
