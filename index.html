@@ -12,15 +12,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
 
+    /* Index: no padding-top — scrub starts directly below fixed nav */
+    .page { padding-top: 0 !important; }
+
     /* ─── SCRUB SECTION ──────────────────────────────────── */
     .scrub-section {
       position: relative;
       height: 350vh;
+      margin-top: 0;
     }
     .scrub-sticky {
       position: sticky;
-      top: 0;
-      height: 100vh;
+      top: 80px;
+      height: calc(100vh - 80px);
       overflow: hidden;
       background: #F0EDE4;
       display: flex;
@@ -152,7 +156,7 @@
     }
     .marquee-track {
       display: flex; width: max-content;
-      animation: marquee 22s linear infinite;
+      animation: marquee 18s linear infinite;
     }
     @keyframes marquee {
       from { transform: translateX(0); }
@@ -162,9 +166,9 @@
       font-family: 'Inter', sans-serif;
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: #111; padding: 0 2.5rem; white-space: nowrap;
+      color: #111; padding: 0 1.5rem; white-space: nowrap;
     }
-    .marquee-dot { opacity: 0.3; padding: 0 0.5rem; }
+    .marquee-sep { opacity: 0.3; padding: 0; }
 
     .product-strip {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -262,18 +266,31 @@
     /* ─── MOBILE ─────────────────────────────────────────── */
     @media (max-width: 900px) {
       #scrub-img { width: 95%; }
+      .scrub-sticky {
+        top: 56px;
+        height: calc(100vh - 56px);
+      }
       .cap-1 {
-        top: 10%; left: 5%;
+        top: 18%; left: 5%;
         transform: none;
       }
       .cap-1 p { font-size: clamp(15px, 5vw, 22px); }
+      .cap-2 {
+        top: 12%; left: 50%;
+        transform: translateX(-50%);
+        width: clamp(140px, 55vw, 280px);
+      }
       .cap-4 {
-        bottom: 8%; left: 50%;
+        bottom: 22%; left: 50%;
         transform: translateX(-50%);
         text-align: center;
       }
       .cap-4 p { font-size: clamp(14px, 4vw, 20px); line-height: 1.8; }
-      .cap-5 { flex-direction: column; align-items: center; bottom: 8%; }
+      .cap-5 {
+        flex-direction: column;
+        align-items: center;
+        bottom: 6%;
+      }
       .hero-statement { padding: 3.5rem 1.5rem 2.5rem; }
       .product-strip { grid-template-columns: 1fr; }
       .product-card { padding: 2.5rem 1.5rem; }
@@ -342,7 +359,7 @@
 
         <div class="cap cap-5" id="cap5">
           <a href="products.html" class="btn-on-light">View products</a>
-          <a href="contact.html" class="btn-on-light-outline">Order now</a>
+          <a href="contact.html" class="btn-on-light">Order now</a>
         </div>
 
       </div>
@@ -365,19 +382,23 @@
 
     <div class="marquee-wrap">
       <div class="marquee-track">
-        <span class="marquee-item">Made to order</span><span class="marquee-item">Oversized</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item">Craft Product</span><span class="marquee-item">Made to order</span><span class="marquee-item">Oversized</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item">Craft Product</span></div>
+        <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      </div>
     </div>
 
     <div class="product-strip">
       <a href="products.html" class="product-card">
         <span class="product-card-label">01 — Sofas</span>
-        <div class="product-card-name">Cloud<br>Form</div>
+        <div class="product-card-name">Sofas</div>
         <p class="product-card-desc">Three configurations. L-shape, Linear, U-shape. Mattress-scale volumes in linen, corduroy or leather.</p>
         <span class="product-card-arrow">→</span>
       </a>
       <a href="accessories.html" class="product-card">
         <span class="product-card-label">02 — Accessories</span>
-        <div class="product-card-name">Pillow</div>
+        <div class="product-card-name">Accessories</div>
         <p class="product-card-desc">Oversized cushion designed to complement the Cloud Form. Available in all fabric options.</p>
         <span class="product-card-arrow">→</span>
       </a>
@@ -401,7 +422,7 @@
     <div class="cta-band">
       <h3>Ready to configure<br>your form?</h3>
       <div class="cta-band-btns">
-        <a href="products.html" class="btn-dark">View products</a>
+        <a href="products.html" class="btn-dark-outline">View products</a>
         <a href="contact.html" class="btn-dark-outline">Order now</a>
       </div>
     </div>
@@ -457,8 +478,8 @@
     {el:document.getElementById('cap1'),from:0.04,to:0.28},
     {el:document.getElementById('cap2'),from:0.30,to:0.56},
     {el:document.getElementById('cap3'),from:0.33,to:0.56},
-    {el:document.getElementById('cap4'),from:0.58,to:0.90},
-    {el:document.getElementById('cap5'),from:0.87,to:1.00,sticky:true},
+    {el:document.getElementById('cap4'),from:0.58,to:0.88},
+    {el:document.getElementById('cap5'),from:0.82,to:1.00,sticky:true},
   ];
 
   var BASE  = 'https://kamilrapel.github.io/raveforms/frames/frame_';
