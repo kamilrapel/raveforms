@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Raveforms — Cloud Form</title>
+  <title>raveforms</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -203,32 +203,42 @@
       text-decoration: none; color: inherit;
       transition: background 0.25s ease, color 0.25s ease;
     }
-    .product-card:hover { background: #111; }
+    .product-card:hover,
+    .product-card:active,
+    .product-card:focus-visible { background: #111; outline: none; }
     .product-card-label {
       font-family: 'Inter', sans-serif;
       font-size: 9px; font-weight: 700;
       letter-spacing: 0.28em; text-transform: uppercase; color: #aaa;
       transition: color 0.25s ease;
     }
-    .product-card:hover .product-card-label { color: #F0EDE4; opacity: 0.55; }
+    .product-card:hover .product-card-label,
+    .product-card:active .product-card-label,
+    .product-card:focus-visible .product-card-label { color: #F0EDE4; opacity: 0.55; }
     .product-card-name {
       font-family: 'Space Mono', monospace;
       font-size: clamp(22px, 3vw, 42px);
       font-weight: 400; color: #111; line-height: 1.1;
       transition: color 0.25s ease;
     }
-    .product-card:hover .product-card-name { color: #F0EDE4; }
+    .product-card:hover .product-card-name,
+    .product-card:active .product-card-name,
+    .product-card:focus-visible .product-card-name { color: #F0EDE4; }
     .product-card-desc {
       font-family: 'Space Mono', monospace;
       font-size: 11px; color: #888; line-height: 1.85;
       transition: color 0.25s ease;
     }
-    .product-card:hover .product-card-desc { color: #F0EDE4; opacity: 0.7; }
+    .product-card:hover .product-card-desc,
+    .product-card:active .product-card-desc,
+    .product-card:focus-visible .product-card-desc { color: #F0EDE4; opacity: 0.7; }
     .product-card-arrow {
       font-size: 20px; color: #111; margin-top: auto; align-self: flex-end;
       transition: color 0.25s ease, transform 0.25s ease;
     }
-    .product-card:hover .product-card-arrow { color: #F0EDE4; transform: translateX(4px); }
+    .product-card:hover .product-card-arrow,
+    .product-card:active .product-card-arrow,
+    .product-card:focus-visible .product-card-arrow { color: #F0EDE4; transform: translateX(4px); }
 
     .philosophy-row {
       display: grid; grid-template-columns: repeat(3, 1fr);
