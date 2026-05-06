@@ -38,7 +38,7 @@ body {
 
 .page { padding-top: 80px; }
 
-.nav-links { display: flex; gap: 4rem; list-style: none; }
+.nav-links { display: flex; gap: 4rem; list-style: none; margin: 0; padding: 0; }
 
 .nav-links li {
   font-size: 15px; font-weight: 400; letter-spacing: 0.14em;

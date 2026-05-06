@@ -397,6 +397,14 @@
 
     prev.addEventListener('click', function(e) { e.preventDefault(); scrollToSlide(-1); });
     next.addEventListener('click', function(e) { e.preventDefault(); scrollToSlide(1); });
+
+    // Always start on first slide (mobile browsers may otherwise restore an arbitrary scroll position)
+    function resetToFirst(){
+      area.scrollLeft = 0;
+    }
+    resetToFirst();
+    window.addEventListener('load', resetToFirst);
+    window.addEventListener('pageshow', resetToFirst);
   })();
 </script>
 <!-- ═══════════════════════════════════════════════════════
