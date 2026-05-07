@@ -220,17 +220,17 @@
     <form class="form-section" action="https://formspree.io/f/xpqkbzyg" method="POST">
       <div class="form-row">
         <div class="form-field">
-          <label class="field-label">Name</label>
-          <input type="text" name="name" class="field-input" placeholder="your name">
+          <label class="field-label" for="form-name">Name</label>
+          <input type="text" id="form-name" name="name" class="field-input" placeholder="your name" required>
         </div>
         <div class="form-field">
-          <label class="field-label">E-mail</label>
-          <input type="email" name="email" class="field-input" placeholder="your e-mail">
+          <label class="field-label" for="form-email">E-mail</label>
+          <input type="email" id="form-email" name="email" class="field-input" placeholder="your e-mail" required>
         </div>
       </div>
       <div class="form-field full">
-        <label class="field-label">Message</label>
-        <textarea name="message" class="field-input" rows="5" placeholder="ask us anything..."></textarea>
+        <label class="field-label" for="form-message">Message</label>
+        <textarea id="form-message" name="message" class="field-input" rows="5" placeholder="ask us anything..." required></textarea>
       </div>
       <div class="form-submit">
         <span class="submit-note">we'll get back to you within 48h.</span>
