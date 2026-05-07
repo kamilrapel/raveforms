@@ -197,7 +197,8 @@
     }
     .product-card:hover,
     .product-card:active,
-    .product-card:focus-visible { background: #111; outline: none; }
+    .product-card:focus-visible,
+    .product-card.tapped { background: #111; outline: none; }
     .product-card-label {
       font-family: 'Inter', sans-serif;
       font-size: 9px; font-weight: 700;
@@ -206,7 +207,8 @@
     }
     .product-card:hover .product-card-label,
     .product-card:active .product-card-label,
-    .product-card:focus-visible .product-card-label { color: #F0EDE4; opacity: 0.55; }
+    .product-card:focus-visible .product-card-label,
+    .product-card.tapped .product-card-label { color: #F0EDE4; opacity: 1; }
     .product-card-name {
       font-family: 'Space Mono', monospace;
       font-size: clamp(22px, 3vw, 42px);
@@ -215,7 +217,8 @@
     }
     .product-card:hover .product-card-name,
     .product-card:active .product-card-name,
-    .product-card:focus-visible .product-card-name { color: #F0EDE4; }
+    .product-card:focus-visible .product-card-name,
+    .product-card.tapped .product-card-name { color: #F0EDE4; }
     .product-card-desc {
       font-family: 'Space Mono', monospace;
       font-size: 11px; color: #888; line-height: 1.85;
@@ -223,14 +226,16 @@
     }
     .product-card:hover .product-card-desc,
     .product-card:active .product-card-desc,
-    .product-card:focus-visible .product-card-desc { color: #F0EDE4; opacity: 0.7; }
+    .product-card:focus-visible .product-card-desc,
+    .product-card.tapped .product-card-desc { color: #F0EDE4; opacity: 0.7; }
     .product-card-arrow {
       font-size: 20px; color: #111; margin-top: auto; align-self: flex-end;
       transition: color 0.25s ease, transform 0.25s ease;
     }
     .product-card:hover .product-card-arrow,
     .product-card:active .product-card-arrow,
-    .product-card:focus-visible .product-card-arrow { color: #F0EDE4; transform: translateX(4px); }
+    .product-card:focus-visible .product-card-arrow,
+    .product-card.tapped .product-card-arrow { color: #F0EDE4; transform: translateX(4px); }
 
     .philosophy-row {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -508,6 +513,21 @@
 
 // Lang
 (function(){var t=document.getElementById('lang-toggle'),en=document.getElementById('lang-en'),th=document.getElementById('lang-th'),l='en';t.addEventListener('click',function(){l=l==='en'?'th':'en';en.className=l==='en'?'active':'inactive';th.className=l==='th'?'active':'inactive';});})();
+
+// Mobile product cards — flash black on tap, then navigate
+(function(){
+  var isTouch = window.matchMedia('(hover: none)').matches;
+  if(!isTouch) return;
+  document.querySelectorAll('.product-card').forEach(function(card){
+    card.addEventListener('click', function(e){
+      if(card.classList.contains('tapped')) return; // already animating
+      e.preventDefault();
+      var href = card.getAttribute('href');
+      card.classList.add('tapped');
+      setTimeout(function(){ window.location.href = href; }, 220);
+    });
+  });
+})();
 
 // ══ IMAGE SEQUENCE SCRUB ══════════════════════════════
 (function(){

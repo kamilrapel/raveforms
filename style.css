@@ -59,7 +59,8 @@ body {
 .nav-links li.active { font-weight: 700 !important; text-decoration: none !important; border-bottom: none !important; color: #111 !important; }
 
 .nav-lang {
-  font-size: 11px; color: #111; cursor: pointer;
+  font-size: 15px; color: #111; cursor: pointer;
+  letter-spacing: 0.14em;
   user-select: none; justify-self: end;
 }
 .nav-lang .active   { font-weight: 700; }
@@ -213,7 +214,7 @@ body {
   }
   .page { padding-top: 56px; }
   .nav-logo svg { height: 22px; }
-  .nav-lang { font-size: 13px; justify-self: end; }
+  .nav-lang { font-size: 17px; justify-self: end; letter-spacing: 0.04em; }
 
   /* Active nav item — no bold on mobile (prevents height shifts) */
   .nav-links li.active > a { font-weight: 400 !important; }
