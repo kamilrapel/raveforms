@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>raveforms — pricing</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F0EDE4;
+      font-family: 'Inter', sans-serif;
+      color: #111;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Slim header (matches site nav language) ─────────────── */
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 2.5rem;
+      height: 80px;
+      border-bottom: 0.5px solid #C8C4BB;
+      position: sticky;
+      top: 0;
+      background: #F0EDE4;
+      z-index: 50;
+    }
+    .topbar-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #111;
+      text-decoration: none;
+    }
+    .topbar-logo em {
+      font-style: italic;
+      font-weight: 400;
+      color: #8B7355;
+    }
+    .topbar-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #111;
+      text-align: center;
+    }
+    .topbar-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: #777;
+      justify-self: end;
+      text-transform: uppercase;
+    }
+
+    /* ── Page wrap ───────────────────────────────────────────── */
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+      opacity: 0;
+      animation: rise 0.7s ease forwards 0.1s;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 1.25rem;
+    }
+
+    h1.title {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(36px, 5vw, 72px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    h1.title em { font-style: italic; color: #8B7355; }
+
+    .subtitle {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #777;
+      max-width: 520px;
+      margin-bottom: 4rem;
+    }
+
+    /* ── Configurator card ──────────────────────────────────── */
+    .config {
+      border-top: 0.5px solid #C8C4BB;
+      border-bottom: 0.5px solid #C8C4BB;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #C8C4BB;
+      margin-bottom: 0;
+    }
+    .config-col {
+      background: #F0EDE4;
+      padding: 2.5rem 2.5rem 2.75rem;
+    }
+    .config-col h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 1.5rem;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .pill {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: transparent;
+      color: #111;
+      border: 1px solid #111;
+      padding: 0 1.5rem;
+      height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .pill:hover { background: #111; color: #F0EDE4; }
+    .pill.active {
+      background: #111;
+      color: #F0EDE4;
+    }
+
+    /* ── Price reveal ───────────────────────────────────────── */
+    .reveal {
+      padding: 5rem 2.5rem 5rem;
+      border-bottom: 0.5px solid #C8C4BB;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+    }
+    .reveal-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+    .reveal-sku {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: #111;
+      margin-bottom: 2.25rem;
+      text-transform: uppercase;
+    }
+    .reveal-sku em { color: #8B7355; font-style: italic; }
+
+    .price-display {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(40px, 5.5vw, 76px);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: #111;
+      transition: opacity 0.25s ease;
+    }
+    .price-display .ccy {
+      font-size: 0.35em;
+      letter-spacing: -0.01em;
+      color: #8B7355;
+      font-style: italic;
+      padding-left: 0.15em;
+      vertical-align: top;
+      position: relative;
+      top: 0.25em;
+    }
+
+    /* ── Breakdown grid ─────────────────────────────────────── */
+    .breakdown {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .breakdown-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      padding: 1rem 0;
+      border-bottom: 0.5px solid #C8C4BB;
+      gap: 1.5rem;
+    }
+    .breakdown-row:first-child { border-top: 0.5px solid #C8C4BB; }
+    .breakdown-row .key {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #111;
+    }
+    .breakdown-row .val {
+      font-family: 'Space Mono', monospace;
+      font-size: 16px;
+      color: #111;
+      letter-spacing: 0.02em;
+    }
+    .breakdown-row.muted .val { color: #8B7355; }
+    .breakdown-row.total .key,
+    .breakdown-row.total .val { font-weight: 700; }
+    .breakdown-row.total .val { font-size: 18px; }
+
+    /* ── Matrix table ───────────────────────────────────────── */
+    .matrix-wrap {
+      padding: 5rem 0 0;
+    }
+    .matrix-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2rem;
+      padding: 0 0;
+    }
+    .matrix-head h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(22px, 2.6vw, 32px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #111;
+    }
+    .matrix-head .legend {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    table.matrix {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 0.5px solid #C8C4BB;
+      border-bottom: 0.5px solid #C8C4BB;
+    }
+    table.matrix thead th {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #777;
+      text-align: right;
+      padding: 1rem 1rem;
+      border-bottom: 0.5px solid #C8C4BB;
+      white-space: nowrap;
+    }
+    table.matrix thead th:first-child,
+    table.matrix thead th:nth-child(2) { text-align: left; }
+    table.matrix tbody tr {
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    table.matrix tbody tr:hover { background: #E8E4DA; }
+    table.matrix tbody tr.active { background: #111; color: #F0EDE4; }
+    table.matrix tbody tr.active td,
+    table.matrix tbody tr.active td .swatch-label { color: #F0EDE4; }
+
+    table.matrix tbody td {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      padding: 1.1rem 1rem;
+      border-bottom: 0.5px solid #E5E1D6;
+      text-align: right;
+      letter-spacing: 0.02em;
+    }
+    table.matrix tbody tr:last-child td { border-bottom: none; }
+    table.matrix tbody td.shape,
+    table.matrix tbody td.fabric {
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    table.matrix tbody td.fabric .swatch {
+      display: inline-block;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      margin-right: 0.6rem;
+      vertical-align: middle;
+      border: 0.5px solid rgba(17,17,17,0.2);
+    }
+    .sw-cotton   { background: #EFE9DC; }
+    .sw-corduroy { background: #B89A6E; }
+    .sw-leather  { background: #3F2E22; }
+    .sw-color    { background: linear-gradient(135deg, #C44, #4A7, #47C, #C84); }
+
+    .price-cust { color: #111; font-weight: 700; }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .foot {
+      margin-top: 5rem;
+      border-top: 0.5px solid #C8C4BB;
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    /* ── Mobile ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .topbar { padding: 0 1.25rem; height: 56px; }
+      .wrap { padding: 2.5rem 1.25rem 4rem; }
+      .config { grid-template-columns: 1fr; }
+      .config-col { padding: 1.75rem 1.25rem 2rem; }
+      .reveal {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.25rem 3rem;
+        gap: 2.5rem;
+      }
+      .matrix-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 0 0; }
+      table.matrix thead th { font-size: 8px; padding: 0.75rem 0.5rem; letter-spacing: 0.14em; }
+      table.matrix tbody td { font-size: 11px; padding: 0.85rem 0.5rem; }
+      table.matrix tbody td.shape,
+      table.matrix tbody td.fabric { font-size: 9px; letter-spacing: 0.12em; }
+      .price-display { font-size: clamp(36px, 11vw, 60px); }
+      .foot { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      table.matrix thead th:nth-child(3),
+      table.matrix thead th:nth-child(4),
+      table.matrix tbody td:nth-child(3),
+      table.matrix tbody td:nth-child(4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ────────────────────────────────────── -->
+  <header class="topbar">
+    <a href="index.html" class="topbar-logo">rave<em>forms</em></a>
+    <div class="topbar-label">Pricing — internal</div>
+    <div class="topbar-meta" id="date-stamp"></div>
+  </header>
+
+  <main class="wrap">
+
+    <div class="eyebrow">Pricing / Configurator</div>
+    <h1 class="title">Build a price <em>in two clicks.</em></h1>
+    <p class="subtitle">Pick a shape, pick a fabric. The breakdown — factory, fabric, margin, customer price — updates live. All numbers in THB, drawn from the master sheet.</p>
+
+    <!-- ── CONFIGURATOR ─────────────────────────────── -->
+    <section class="config">
+      <div class="config-col">
+        <h3>01 — Shape</h3>
+        <div class="pill-row" id="shape-row">
+          <button class="pill active" data-shape="L-SHAPE">L-Shape</button>
+          <button class="pill" data-shape="U-SHAPE">U-Shape</button>
+          <button class="pill" data-shape="LINEAR">Linear</button>
+          <button class="pill" data-shape="PILLOW">Pillow</button>
+        </div>
+      </div>
+      <div class="config-col">
+        <h3>02 — Fabric</h3>
+        <div class="pill-row" id="fabric-row">
+          <button class="pill active" data-fabric="cotton">Cotton</button>
+          <button class="pill" data-fabric="corduroy">Corduroy</button>
+          <button class="pill" data-fabric="leather">Leather</button>
+          <button class="pill" data-fabric="color">Color</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRICE REVEAL ─────────────────────────────── -->
+    <section class="reveal">
+      <div>
+        <div class="reveal-label">Customer price</div>
+        <div class="reveal-sku" id="reveal-sku">L-Shape — <em>cotton</em></div>
+        <div class="price-display" id="price-display">
+          140,000<span class="ccy">THB</span>
+        </div>
+      </div>
+
+      <div class="breakdown" id="breakdown">
+        <!-- populated by JS -->
+      </div>
+    </section>
+
+    <!-- ── MATRIX ───────────────────────────────────── -->
+    <section class="matrix-wrap">
+      <div class="matrix-head">
+        <h2>Full <em style="color:#8B7355;font-style:italic;">matrix.</em></h2>
+        <div class="legend">Tap a row to load it above</div>
+      </div>
+
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Shape</th>
+            <th>Fabric</th>
+            <th>Factory</th>
+            <th>Fabric cost</th>
+            <th>Production</th>
+            <th>Margin</th>
+            <th>Customer</th>
+          </tr>
+        </thead>
+        <tbody id="matrix-body">
+          <!-- populated by JS -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div>raveforms — pricing dashboard</div>
+    <div>Source: sofa_pricing.xlsx</div>
+  </footer>
+
+  <script>
+    /* ── Data (mirrors sofa_pricing.xlsx) ────────────────── */
+    const DATA = [
+      { shape: 'L-SHAPE', fabric: 'cotton',   factory: 29000, fabric_cost: 5000,   production: 34000, customer: 140000 },
+      { shape: 'L-SHAPE', fabric: 'corduroy', factory: 29000, fabric_cost: 8000,   production: 37000, customer: 150000 },
+      { shape: 'L-SHAPE', fabric: 'leather',  factory: 29000, fabric_cost: 135000, production: 164000, customer: 250000 },
+      { shape: 'L-SHAPE', fabric: 'color',    factory: 29000, fabric_cost: 8000,   production: 37000, customer: 150000 },
+      { shape: 'U-SHAPE', fabric: 'cotton',   factory: 45000, fabric_cost: 7000,   production: 52000, customer: 210000 },
+      { shape: 'U-SHAPE', fabric: 'corduroy', factory: 45000, fabric_cost: 9000,   production: 54000, customer: 220000 },
+      { shape: 'U-SHAPE', fabric: 'leather',  factory: 45000, fabric_cost: 155000, production: 200000, customer: 300000 },
+      { shape: 'U-SHAPE', fabric: 'color',    factory: 45000, fabric_cost: 12000,  production: 57000, customer: 240000 },
+      { shape: 'LINEAR',  fabric: 'cotton',   factory: 25000, fabric_cost: 4000,   production: 29000, customer: 120000 },
+      { shape: 'LINEAR',  fabric: 'corduroy', factory: 25000, fabric_cost: 6000,   production: 31000, customer: 130000 },
+      { shape: 'LINEAR',  fabric: 'leather',  factory: 25000, fabric_cost: 125000, production: 150000, customer: 250000 },
+      { shape: 'LINEAR',  fabric: 'color',    factory: 25000, fabric_cost: 7000,   production: 32000, customer: 120000 },
+      { shape: 'PILLOW',  fabric: 'cotton',   factory: 0,     fabric_cost: 1000,   production: 1000,  customer: 4000  },
+      { shape: 'PILLOW',  fabric: 'corduroy', factory: 0,     fabric_cost: 1500,   production: 1500,  customer: 4000  },
+      { shape: 'PILLOW',  fabric: 'leather',  factory: 0,     fabric_cost: 5000,   production: 5000,  customer: 7000  },
+      { shape: 'PILLOW',  fabric: 'color',    factory: 0,     fabric_cost: 1500,   production: 1500,  customer: 4000  },
+    ];
+
+    /* ── Helpers ─────────────────────────────────────────── */
+    const fmt = n => n.toLocaleString('en-US').replace(/,/g, ' ').replace(/ /g, ' ');
+    const $ = sel => document.querySelector(sel);
+
+    function findRow(shape, fabric) {
+      return DATA.find(r => r.shape === shape && r.fabric === fabric);
+    }
+
+    function prettyShape(s) {
+      return s.replace('-SHAPE', '-Shape').replace('LINEAR', 'Linear').replace('PILLOW', 'Pillow');
+    }
+
+    /* ── State ───────────────────────────────────────────── */
+    let state = { shape: 'L-SHAPE', fabric: 'cotton' };
+
+    /* ── Render ──────────────────────────────────────────── */
+    function render() {
+      const row = findRow(state.shape, state.fabric);
+      if (!row) return;
+
+      // Pills
+      document.querySelectorAll('[data-shape]').forEach(b => {
+        b.classList.toggle('active', b.dataset.shape === state.shape);
+      });
+      document.querySelectorAll('[data-fabric]').forEach(b => {
+        b.classList.toggle('active', b.dataset.fabric === state.fabric);
+      });
+
+      // SKU line
+      $('#reveal-sku').innerHTML =
+        `${prettyShape(row.shape)} — <em>${row.fabric}</em>`;
+
+      // Big price with subtle flash
+      const priceEl = $('#price-display');
+      priceEl.style.opacity = '0';
+      setTimeout(() => {
+        priceEl.innerHTML = `${fmt(row.customer)}<span class="ccy">THB</span>`;
+        priceEl.style.opacity = '1';
+      }, 120);
+
+      // Breakdown
+      const margin = row.customer - row.production;
+      const marginPct = Math.round((margin / row.customer) * 100);
+      const breakdown = [
+        { key: 'Factory production', val: row.factory, muted: row.factory === 0 },
+        { key: `Fabric — ${row.fabric}`, val: row.fabric_cost },
+        { key: 'Total production cost', val: row.production },
+        { key: `Margin (${marginPct}%)`, val: margin },
+        { key: 'Customer price', val: row.customer, total: true },
+      ];
+      $('#breakdown').innerHTML = breakdown.map(b => `
+        <div class="breakdown-row ${b.muted ? 'muted' : ''} ${b.total ? 'total' : ''}">
+          <span class="key">${b.key}</span>
+          <span class="val">${fmt(b.val)} THB</span>
+        </div>
+      `).join('');
+
+      // Matrix highlight
+      document.querySelectorAll('#matrix-body tr').forEach(tr => {
+        tr.classList.toggle('active',
+          tr.dataset.shape === state.shape && tr.dataset.fabric === state.fabric);
+      });
+    }
+
+    /* ── Build matrix table ──────────────────────────────── */
+    function buildMatrix() {
+      const tbody = $('#matrix-body');
+      tbody.innerHTML = DATA.map(r => {
+        const margin = r.customer - r.production;
+        return `
+          <tr data-shape="${r.shape}" data-fabric="${r.fabric}">
+            <td class="shape">${prettyShape(r.shape)}</td>
+            <td class="fabric"><span class="swatch sw-${r.fabric}"></span><span class="swatch-label">${r.fabric}</span></td>
+            <td>${fmt(r.factory)}</td>
+            <td>${fmt(r.fabric_cost)}</td>
+            <td>${fmt(r.production)}</td>
+            <td>${fmt(margin)}</td>
+            <td class="price-cust">${fmt(r.customer)} THB</td>
+          </tr>
+        `;
+      }).join('');
+
+      tbody.addEventListener('click', e => {
+        const tr = e.target.closest('tr');
+        if (!tr) return;
+        state.shape = tr.dataset.shape;
+        state.fabric = tr.dataset.fabric;
+        render();
+        // Scroll the reveal into view smoothly
+        document.querySelector('.reveal').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+
+    /* ── Pill wiring ─────────────────────────────────────── */
+    document.querySelectorAll('[data-shape]').forEach(b => {
+      b.addEventListener('click', () => { state.shape = b.dataset.shape; render(); });
+    });
+    document.querySelectorAll('[data-fabric]').forEach(b => {
+      b.addEventListener('click', () => { state.fabric = b.dataset.fabric; render(); });
+    });
+
+    /* ── Date stamp ──────────────────────────────────────── */
+    const today = new Date();
+    $('#date-stamp').textContent = today.toISOString().slice(0, 10);
+
+    /* ── Init ────────────────────────────────────────────── */
+    buildMatrix();
+    render();
+  </script>
+</body>
+</html>
