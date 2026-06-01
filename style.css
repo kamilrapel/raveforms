@@ -236,21 +236,27 @@ body {
   .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
   /* Dropdown menu */
-  /* Dropdown container */
+  /* Dropdown container — slides down with max-height transition */
   ul.nav-links {
-    display: none !important;
+    display: flex !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
     position: absolute !important;
     top: 100% !important; left: 0 !important; right: 0 !important;
     width: 100% !important;
     background: #F0EDE4 !important;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important;
+    box-shadow: none !important;
     flex-direction: column !important;
     z-index: 99998 !important;
     padding: 0 !important; margin: 0 !important;
     list-style: none !important;
     gap: 0 !important;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
   }
-  ul.nav-links.open { display: flex !important; }
+  ul.nav-links.open {
+    max-height: 600px !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important;
+  }
 
   /* Each <li> — clean wrapper, no padding, no border */
   ul.nav-links > li {
