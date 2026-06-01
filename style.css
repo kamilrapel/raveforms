@@ -1,5 +1,5 @@
 /* ============================================================
-   RAVEFORMS — Shared Stylesheet
+   RAVEFORMS - Shared Stylesheet
    Desktop + Mobile
    ============================================================ */
 
@@ -198,7 +198,7 @@ body {
 }
 
 /* ============================================================
-   MOBILE — max-width 768px
+   MOBILE - max-width 768px
    ============================================================ */
 @media (max-width: 900px) {
 
@@ -218,7 +218,7 @@ body {
   .nav-logo svg { height: 22px; }
   .nav-lang { font-size: 17px; justify-self: end; letter-spacing: 0.04em; }
 
-  /* Active nav item — no bold on mobile (prevents height shifts) */
+  /* Active nav item - no bold on mobile (prevents height shifts) */
   .nav-links li.active > a { font-weight: 400 !important; }
 
   /* Hamburger button */
@@ -238,7 +238,7 @@ body {
   .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
   /* Dropdown menu */
-  /* Dropdown container — slides down with max-height transition */
+  /* Dropdown container - slides down with max-height transition */
   ul.nav-links {
     display: flex !important;
     max-height: 0 !important;
@@ -260,7 +260,7 @@ body {
     box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important;
   }
 
-  /* Each <li> — clean wrapper, no padding, no border */
+  /* Each <li> - clean wrapper, no padding, no border */
   ul.nav-links > li {
     display: block !important;
     width: 100% !important;
@@ -272,7 +272,7 @@ body {
     font-size: 0 !important; /* prevent inline-block whitespace */
   }
 
-  /* The clickable cell — single source of border + height */
+  /* The clickable cell - single source of border + height */
   ul.nav-links > li > a,
   ul.nav-links > li > #prod-btn {
     display: flex !important;
@@ -314,7 +314,7 @@ body {
     opacity: 1 !important;
   }
 
-  /* Active state — no bold (prevents height shift) */
+  /* Active state - no bold (prevents height shift) */
   ul.nav-links > li.active > a {
     font-weight: 400 !important;
   }

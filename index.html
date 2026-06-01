@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>raveforms - Oversized Sofas</title>
-  <meta name="description" content="Oversized Sofas made to order in Bangkok. Cloud Form by raveforms — a modular surface system in L-shape, Linear and U-shape configurations, in cotton, corduroy or leather.">
+  <meta name="description" content="Oversized Sofas made to order in Bangkok. Cloud Form by raveforms - a modular surface system in L-shape, Linear and U-shape configurations, in cotton, corduroy or leather.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -87,7 +87,7 @@
       }
       .hero-image-content {
         padding: 4rem 1.25rem 0;
-        padding-left: calc(1.25rem + 6px);
+        padding-left: calc(1.25rem + 26px);
         max-width: 100%;
       }
       .hero-image-sub { max-width: 100%; font-size: 18px; }
@@ -222,21 +222,45 @@
     .landing-content { background: #F0EDE4; }
 
     .hero-statement {
-      padding: 8rem 8% 5rem;
-      max-width: 820px;
+      position: relative;
+      padding: 5rem 8% 10rem;
+      max-width: none;
+      min-height: 56.25vw;
+      background-image: url('images/raveforms_statement.webp');
+      background-size: cover;
+      background-position: center;
+      background-color: #111;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-statement::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.20);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-statement-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
     }
     .hero-statement h2 {
       font-family: 'Space Mono', monospace;
       font-size: clamp(24px, 3.5vw, 48px);
-      font-weight: 400; color: #111;
-      line-height: 1.25; margin-bottom: 2rem;
+      font-weight: 400; color: #F0EDE4;
+      line-height: 1.25; margin-bottom: 1rem;
       letter-spacing: -0.02em;
     }
-    .hero-statement h2 em { font-style: italic; color: #8B7355; }
+    .hero-statement h2 em { font-style: italic; color: #C5A574; }
     .hero-statement p {
       font-family: 'Space Mono', monospace;
-      font-size: 12px; color: #777;
-      line-height: 2; max-width: 440px;
+      font-size: clamp(13px, 1.3vw, 16px);
+      color: rgba(240, 237, 228, 0.85);
+      line-height: 1.9; max-width: 480px;
     }
 
     .marquee-wrap {
@@ -387,7 +411,7 @@
         height: calc(100vh - 56px);
         padding-top: 6rem;
       }
-      /* Cap-1 typewriter — below the sofa on mobile */
+      /* Cap-1 typewriter - below the sofa on mobile */
       .cap-1 {
         top: auto;
         bottom: 35%;
@@ -396,12 +420,22 @@
         text-align: left;
       }
       .cap-1 p { font-size: clamp(15px, 5vw, 22px); line-height: 1.35; }
-      /* Cap-3 "Cloud Form / L-SHAPE" — slightly higher on mobile */
+      /* Cap-3 "Cloud Form / L-SHAPE" - slightly higher on mobile */
       .cap-3 { bottom: 18%; }
       .cap-3 span { font-size: 10px; letter-spacing: 0.22em; }
 
       /* Landing content mobile */
-      .hero-statement { padding: 3.5rem 1.5rem 2.5rem; }
+      .hero-statement {
+        padding: 3rem 1.5rem 1rem;
+        min-height: calc(100vw * 4 / 3);
+        background-image: url('images/raveforms_statement_mobile.webp');
+        background-position: center top;
+        align-items: flex-end;
+      }
+      .hero-statement::after { display: none; }
+      .hero-statement-content { max-width: 100%; }
+      .hero-statement h2 { font-size: clamp(22px, 6.5vw, 32px); margin-bottom: 1.5rem; color: #F0EDE4; }
+      .hero-statement p { font-size: 14px; line-height: 1.7; max-width: 100%; }
       .product-strip { grid-template-columns: 1fr; }
       .product-card { padding: 2.5rem 1.5rem; }
       .philosophy-row { grid-template-columns: 1fr; }
@@ -416,7 +450,7 @@
 <body>
 <div class="page">
 
-  <!-- SEO H1 — visually hidden but accessible to crawlers and screen readers -->
+  <!-- SEO H1 - visually hidden but accessible to crawlers and screen readers -->
   <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Oversized sofas, made to order in Bangkok.</h1>
 
   <!-- NAV -->
@@ -463,7 +497,7 @@
   <div class="scrub-section" id="scrub-section">
     <div class="scrub-sticky">
 
-      <img id="scrub-img" src="" alt="Cloud Form oversized modular sofa — animated 360-degree view">
+      <img id="scrub-img" src="" alt="Cloud Form oversized modular sofa - animated 360-degree view">
 
       <div class="scrub-captions">
 
@@ -483,17 +517,19 @@
   <!-- LANDING CONTENT -->
   <div class="landing-content">
 
-    <div class="hero-statement">
-      <h2>A sofa that doesn't<br>tell you how to sit.</h2>
-      <p>Cloud Form is a surface system designed for the way people actually live — lying flat, sitting sideways, sprawled out. No rules. No wrong position.</p>
-    </div>
-
     <div class="marquee-wrap">
       <div class="marquee-track">
         <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
         <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
         <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
         <span class="marquee-item">Made to order</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Oversized</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Contemporary Form</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="marquee-item">Craft Product</span><span class="marquee-item marquee-sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="hero-statement">
+      <div class="hero-statement-content">
+        <h2>A sofa that doesn't<br>tell you how to sit.</h2>
+        <p>Cloud Form is a surface system designed for the way people actually live - lying flat, sitting sideways, sprawled out. No rules. No wrong position.</p>
       </div>
     </div>
 
@@ -577,7 +613,7 @@
 // Lang
 (function(){var t=document.getElementById('lang-toggle'),en=document.getElementById('lang-en'),th=document.getElementById('lang-th'),l='en';t.addEventListener('click',function(){l=l==='en'?'th':'en';en.className=l==='en'?'active':'inactive';th.className=l==='th'?'active':'inactive';});})();
 
-// Mobile product cards — flash black on tap, then navigate
+// Mobile product cards - flash black on tap, then navigate
 (function(){
   var isTouch = window.matchMedia('(hover: none)').matches;
   if(!isTouch) return;
@@ -598,7 +634,7 @@
   var section = document.getElementById('scrub-section');
   var caps    = [];
 
-  // Typewriter setup for cap1 — split text into character spans
+  // Typewriter setup for cap1 - split text into character spans
   var cap1El = document.getElementById('cap1');
   var cap1Chars = [];
   (function wrapChars(){
@@ -690,7 +726,7 @@
       c.el.style.opacity=op;
     });
 
-    // Cap1 typewriter — reveal letters one-by-one (earlier start on mobile)
+    // Cap1 typewriter - reveal letters one-by-one (earlier start on mobile)
     if(cap1Chars && cap1Chars.length){
       var isMobile = window.innerWidth <= 900;
       var revealStart = isMobile ? 0.10 : 0.33;

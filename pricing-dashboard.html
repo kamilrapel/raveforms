@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>raveforms — pricing</title>
+  <title>raveforms - pricing</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -375,7 +375,7 @@
   <!-- ── HEADER ────────────────────────────────────── -->
   <header class="topbar">
     <a href="index.html" class="topbar-logo">rave<em>forms</em></a>
-    <div class="topbar-label">Pricing — internal</div>
+    <div class="topbar-label">Pricing - internal</div>
     <div class="topbar-meta" id="date-stamp"></div>
   </header>
 
@@ -383,12 +383,12 @@
 
     <div class="eyebrow">Pricing / Configurator</div>
     <h1 class="title">Build a price <em>in two clicks.</em></h1>
-    <p class="subtitle">Pick a shape, pick a fabric. The breakdown — factory, fabric, margin, customer price — updates live. All numbers in THB, drawn from the master sheet.</p>
+    <p class="subtitle">Pick a shape, pick a fabric. The breakdown - factory, fabric, margin, customer price - updates live. All numbers in THB, drawn from the master sheet.</p>
 
     <!-- ── CONFIGURATOR ─────────────────────────────── -->
     <section class="config">
       <div class="config-col">
-        <h3>01 — Shape</h3>
+        <h3>01 - Shape</h3>
         <div class="pill-row" id="shape-row">
           <button class="pill active" data-shape="L-SHAPE">L-Shape</button>
           <button class="pill" data-shape="U-SHAPE">U-Shape</button>
@@ -397,7 +397,7 @@
         </div>
       </div>
       <div class="config-col">
-        <h3>02 — Fabric</h3>
+        <h3>02 - Fabric</h3>
         <div class="pill-row" id="fabric-row">
           <button class="pill active" data-fabric="cotton">Cotton</button>
           <button class="pill" data-fabric="corduroy">Corduroy</button>
@@ -411,7 +411,7 @@
     <section class="reveal">
       <div>
         <div class="reveal-label">Customer price</div>
-        <div class="reveal-sku" id="reveal-sku">L-Shape — <em>cotton</em></div>
+        <div class="reveal-sku" id="reveal-sku">L-Shape - <em>cotton</em></div>
         <div class="price-display" id="price-display">
           140,000<span class="ccy">THB</span>
         </div>
@@ -450,7 +450,7 @@
   </main>
 
   <footer class="foot">
-    <div>raveforms — pricing dashboard</div>
+    <div>raveforms - pricing dashboard</div>
     <div>Source: sofa_pricing.xlsx</div>
   </footer>
 
@@ -505,7 +505,7 @@
 
       // SKU line
       $('#reveal-sku').innerHTML =
-        `${prettyShape(row.shape)} — <em>${row.fabric}</em>`;
+        `${prettyShape(row.shape)} - <em>${row.fabric}</em>`;
 
       // Big price with subtle flash
       const priceEl = $('#price-display');
@@ -520,7 +520,7 @@
       const marginPct = Math.round((margin / row.customer) * 100);
       const breakdown = [
         { key: 'Factory production', val: row.factory, muted: row.factory === 0 },
-        { key: `Fabric — ${row.fabric}`, val: row.fabric_cost },
+        { key: `Fabric - ${row.fabric}`, val: row.fabric_cost },
         { key: 'Total production cost', val: row.production },
         { key: `Margin (${marginPct}%)`, val: margin },
         { key: 'Customer price', val: row.customer, total: true },
