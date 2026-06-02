@@ -69,10 +69,10 @@
 
     .body-text {
       font-family: 'Space Mono', monospace;
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 400;
       color: #111;
-      line-height: 2;
+      line-height: 1.9;
       letter-spacing: 0.02em;
       max-width: 560px;
     }
@@ -124,8 +124,10 @@
 
     .about-hero {
       position: relative;
-      width: 100%;
-      margin: 0 0 3rem 0;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-bottom: 3rem;
       overflow: hidden;
     }
     .section .body-text {
@@ -151,10 +153,10 @@
       color: #111;
       z-index: 2;
       max-width: 90%;
+      font-size: clamp(40px, 6vw, 72px);
     }
     .about-hero .headline em {
       color: #111;
-      font-weight: 700;
     }
     @media (max-width: 900px) {
       .about-hero {
@@ -223,7 +225,7 @@
         text-align: left;
       }
       .section-line { margin-left: 0; }
-      .body-text { max-width: 100%; }
+      .body-text { max-width: 100%; font-size: 12px; }
       .headline { font-size: clamp(28px, 8vw, 48px); margin-bottom: 2rem; }
       .stat-row { grid-template-columns: 1fr 1fr 1fr; }
       .values-grid { grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 2rem; }
