@@ -714,10 +714,13 @@
   function prog(){
     var r = section.getBoundingClientRect();
     var vh = window.innerHeight;
-    // Animation starts ~20% after section enters viewport, finishes when section is fully in view.
+    var isMobile = window.innerWidth <= 900;
+    // Animation starts ~32% after section enters viewport.
+    // Mobile finishes earlier (at 70% scrolled), desktop at 100% scrolled.
     var scrolled = vh - r.top;
     var startDelay = vh * 0.32;
-    return Math.max(0, Math.min(1, (scrolled - startDelay) / (vh - startDelay)));
+    var endPoint = isMobile ? vh * 0.70 : vh;
+    return Math.max(0, Math.min(1, (scrolled - startDelay) / (endPoint - startDelay)));
   }
 
   function render(){
