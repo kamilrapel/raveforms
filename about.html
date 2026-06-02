@@ -5,19 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>About - design philosophy, craft, made in Bangkok | raveforms</title>
   <meta name="description" content="Raveforms rejects the rules of the traditional sofa. We design mattress-scale surfaces - oversized, contemporary, made to order in Bangkok.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raveforms.com/about.html">
+  <meta property="og:title" content="About - design philosophy, craft, made in Bangkok | raveforms">
+  <meta property="og:description" content="Raveforms rejects the rules of the traditional sofa. We design mattress-scale surfaces - oversized, contemporary, made to order in Bangkok.">
+  <meta property="og:image" content="https://raveforms.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About - design philosophy, craft, made in Bangkok | raveforms">
+  <meta name="twitter:description" content="Raveforms rejects the rules of the traditional sofa. We design mattress-scale surfaces - oversized, contemporary, made to order in Bangkok.">
+  <meta name="twitter:image" content="https://raveforms.com/images/og-image.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
 /* CONTENT */
     .content {
       flex: 1;
-      max-width: 780px;
-      margin: 0 auto 0 auto;
-      padding: 2.5rem 2.5rem 1.5rem 8rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 4rem 1.5rem;
       width: 100%;
     }
 
@@ -109,6 +120,51 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #888;
+    }
+
+    .about-hero {
+      position: relative;
+      width: 100%;
+      margin: 0 0 3rem 0;
+      overflow: hidden;
+    }
+    .section .body-text {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .about-hero .about-image {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .about-hero .about-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .about-hero .headline {
+      position: absolute;
+      left: 5%;
+      top: 6%;
+      margin-bottom: 0;
+      color: #111;
+      z-index: 2;
+      max-width: 90%;
+    }
+    .about-hero .headline em {
+      color: #111;
+      font-weight: 700;
+    }
+    @media (max-width: 900px) {
+      .about-hero {
+        margin: 0 0 2rem 0;
+      }
+      .about-hero .headline {
+        left: 5%;
+        top: 5%;
+        font-size: clamp(20px, 5.5vw, 32px);
+      }
     }
 
     .values-grid {
@@ -216,11 +272,15 @@
     <p class="page-label">About</p>
 
     <div class="section">
-      <h1 class="headline">we don't make sofas.<br>we make <em>surfaces.</em></h1>
+      <div class="about-hero">
+        <picture class="about-image">
+          <source media="(max-width: 900px)" srcset="images/raveforms_about_mobile.webp">
+          <img src="images/raveforms_about.webp" alt="Cloud Form oversized modular sofa - mattress-scale surface for lying flat, sitting sideways, sprawled out">
+        </picture>
+        <h1 class="headline">we don't make sofas.<br>we make <em>surfaces.</em></h1>
+      </div>
       <p class="body-text">Raveforms was born from a simple frustration - the sofa as an object has barely changed over the years. It tells you how to sit. It limits how you rest. It assumes a position.</p>
       <p class="body-text" style="margin-bottom: 3rem;">We rejected that. Our forms are genuinely lazy - oversized, mattress-scale surfaces that invite you to do nothing in the most comfortable way possible. Lie flat, sink in, forget the rules.</p>
-
-
 
     <div class="values-grid">
       <div class="value-item">

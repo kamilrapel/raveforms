@@ -318,6 +318,13 @@ body {
   ul.nav-links > li.active > a {
     font-weight: 400 !important;
   }
+  /* Active item should also show cream text on hover/press (was inheriting #111 from desktop .active rule) */
+  ul.nav-links > li.active > a:hover,
+  ul.nav-links > li.active > a:active,
+  ul.nav-links > li.active > a:focus {
+    background: #111 !important;
+    color: #F0EDE4 !important;
+  }
 
   /* Products submenu */
   #prod-menu {

@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>raveforms - Oversized Sofas</title>
   <meta name="description" content="Oversized Sofas made to order in Bangkok. Cloud Form by raveforms - a modular surface system in L-shape, Linear and U-shape configurations, in cotton, corduroy or leather.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raveforms.com/">
+  <meta property="og:title" content="raveforms - Oversized Sofas">
+  <meta property="og:description" content="Oversized Sofas made to order in Bangkok. Cloud Form by raveforms - a modular surface system in L-shape, Linear and U-shape configurations, in cotton, corduroy or leather.">
+  <meta property="og:image" content="https://raveforms.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="raveforms - Oversized Sofas">
+  <meta name="twitter:description" content="Oversized Sofas made to order in Bangkok. Cloud Form by raveforms - a modular surface system in L-shape, Linear and U-shape configurations, in cotton, corduroy or leather.">
+  <meta name="twitter:image" content="https://raveforms.com/images/og-image.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -28,24 +39,15 @@
       justify-content: flex-start;
       overflow: hidden;
     }
-    .hero-image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(240,237,228,0.45) 0%, transparent 55%);
-      pointer-events: none;
-    }
     .hero-image-content {
-      position: relative;
-      z-index: 2;
-      padding: 3.5rem 5% 0;
+      padding: 2rem 5% 0;
       max-width: 900px;
     }
     .hero-image-headline {
       font-family: 'Space Mono', monospace;
-      font-size: clamp(42px, 8.5vw, 116px);
+      font-size: clamp(46px, 9.5vw, 132px);
       font-weight: 400;
-      color: #111;
+      color: #F0EDE4;
       line-height: 1;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
@@ -54,15 +56,15 @@
       font-family: 'Space Mono', monospace;
       font-size: clamp(13px, 1.5vw, 20px);
       font-weight: 400;
-      color: rgba(17, 17, 17, 0.8);
+      color: #F0EDE4;
       line-height: 1.55;
       letter-spacing: 0.04em;
-      max-width: 560px;
-    }
-    .hero-image-sub .sub-mobile { display: none; }
-    @media (max-width: 900px) {
-      .hero-image-sub .sub-desktop { display: none; }
-      .hero-image-sub .sub-mobile { display: inline; }
+      position: absolute;
+      bottom: calc(8rem + 10px);
+      top: auto;
+      left: 5%;
+      max-width: 720px;
+      z-index: 2;
     }
     .hero-image-buttons {
       position: absolute;
@@ -90,7 +92,17 @@
         padding-left: calc(1.25rem + 26px);
         max-width: 100%;
       }
-      .hero-image-sub { max-width: 100%; font-size: 18px; }
+      .hero-image-headline {
+        font-size: clamp(48px, 14vw, 90px);
+        line-height: 0.95;
+      }
+      .hero-image-headline .break-mobile { display: block; }
+      .hero-image-sub {
+        max-width: 100%;
+        font-size: 18px;
+        position: static;
+        color: #F0EDE4;
+      }
       .hero-image-buttons {
         bottom: 4rem;
         gap: 0.5rem;
@@ -484,8 +496,8 @@
   <!-- HERO IMAGE -->
   <section class="hero-image" aria-label="Oversized sofas by raveforms">
     <div class="hero-image-content">
-      <h2 class="hero-image-headline">Oversized Sofas.</h2>
-      <p class="hero-image-sub"><span class="sub-desktop">Mattress-scale surfaces built around how <span style="white-space: nowrap;">you actually rest. Made to order in Bangkok.</span></span><span class="sub-mobile">Mattress-scale surfaces. <span style="white-space: nowrap;">Made to order in Bangkok.</span></span></p>
+      <h2 class="hero-image-headline">Oversized<span class="break-mobile"> Sofas.</span></h2>
+      <p class="hero-image-sub">Mattress-scale surfaces that don't tell you how to sit.</p>
     </div>
     <div class="hero-image-buttons">
       <a href="products.html" class="btn-on-light">View products</a>
@@ -564,7 +576,7 @@
     </div>
 
     <div class="cta-band">
-      <h3>Ready to configure<br>your form?</h3>
+      <h3>Check our sofas.</h3>
       <div class="cta-band-btns">
         <a href="products.html" class="btn-dark-outline">View products</a>
         <a href="contact.html" class="btn-dark-outline">Order now</a>
