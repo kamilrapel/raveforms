@@ -8,15 +8,17 @@
 
 /* ── Base ──────────────────────────────────────────────────── */
 body {
-  background: #F0EDE4;
+  background: #111;
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
 }
 
 .page {
   background: #F0EDE4;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -109,18 +111,30 @@ body {
 /* ── Footer ────────────────────────────────────────────────── */
 .footer, .hero-footer {
   display: flex; flex-direction: column; align-items: center; gap: 1rem;
-  padding: 1.5rem 2.5rem; border-top: 0.5px solid #C8C4BB;
+  padding: 1.25rem 2.5rem;
+  background: #111;
   opacity: 0; animation: fadeUp 0.7s ease forwards 1.4s;
 }
 .footer-links { display: flex; gap: 2.5rem; list-style: none; flex-wrap: wrap; justify-content: center; }
 .footer-links li {
   font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: #111; cursor: pointer;
+  text-transform: uppercase; color: #F0EDE4; cursor: pointer;
   transition: opacity 0.2s; display: flex; align-items: center; gap: 7px;
   font-family: 'Inter', sans-serif;
 }
-.footer-links li:hover { opacity: 0.5; }
-.footer-copy { font-size: 10px; font-weight: 400; color: #111; text-align: center; letter-spacing: 0.06em; }
+.footer-links li:hover { opacity: 0.55; }
+.footer svg, .hero-footer svg { stroke: #F0EDE4; }
+.footer svg circle[fill], .hero-footer svg circle[fill] { fill: #F0EDE4; }
+.footer-copy { font-size: 10px; font-weight: 400; color: #F0EDE4; text-align: center; letter-spacing: 0.06em; }
+.footer-logo {
+  display: block;
+  height: 14px;
+  width: auto;
+  fill: #F0EDE4;
+  opacity: 1;
+  margin-top: 0.5rem;
+  overflow: visible;
+}
 
 /* ── Animations ────────────────────────────────────────────── */
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
