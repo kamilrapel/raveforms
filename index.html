@@ -300,11 +300,15 @@
       object-fit: cover; display: block;
       transition: transform 0.4s ease;
     }
-    .model-card:hover { background: #111; }
+    .model-card:hover,
+    .model-card.tapped { background: #111; }
     .model-card:hover .model-card-image img { transform: scale(1.04); }
-    .model-card:hover .model-card-label { color: #F0EDE4; opacity: 1; }
-    .model-card:hover .model-card-name { color: #F0EDE4; }
-    .model-card:hover .model-card-meta { color: #F0EDE4; opacity: 0.7; }
+    .model-card:hover .model-card-label,
+    .model-card.tapped .model-card-label { color: #F0EDE4; opacity: 1; }
+    .model-card:hover .model-card-name,
+    .model-card.tapped .model-card-name { color: #F0EDE4; }
+    .model-card:hover .model-card-meta,
+    .model-card.tapped .model-card-meta { color: #F0EDE4; opacity: 0.7; }
     .model-card-info {
       padding: 1.5rem 2rem 1.75rem;
       display: flex; flex-direction: column; gap: 0.5rem;
@@ -678,11 +682,11 @@
 // Lang
 (function(){var t=document.getElementById('lang-toggle'),en=document.getElementById('lang-en'),th=document.getElementById('lang-th'),l='en';t.addEventListener('click',function(){l=l==='en'?'th':'en';en.className=l==='en'?'active':'inactive';th.className=l==='th'?'active':'inactive';});})();
 
-// Mobile product cards - flash black on tap, then navigate
+// Mobile cards - flash black on tap, then navigate (product-card + model-card)
 (function(){
   var isTouch = window.matchMedia('(hover: none)').matches;
   if(!isTouch) return;
-  document.querySelectorAll('.product-card').forEach(function(card){
+  document.querySelectorAll('.product-card, .model-card').forEach(function(card){
     card.addEventListener('click', function(e){
       if(card.classList.contains('tapped')) return; // already animating
       e.preventDefault();
