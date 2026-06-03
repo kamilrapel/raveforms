@@ -330,7 +330,7 @@
         <h1 class="product-label">Cloud Form</h1>
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;">
-        <span style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#111;">choose your form</span>
+        <span style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#111;">configuration</span>
         <div class="config-selector">
           <button class="config-btn active" onclick="showVariant(1)">01</button>
           <button class="config-btn" onclick="showVariant(2)">02</button>
@@ -538,8 +538,15 @@
     window.addEventListener('pageshow', resetToFirst);
   })();
 
-  // Initialize variant 1 (L-shape) on page load to show its gallery
-  showVariant(1);
+  // Determine which variant to show on page load from URL hash (#l-shape / #linear / #u-shape)
+  function variantFromHash() {
+    var h = (window.location.hash || '').toLowerCase().replace('#', '');
+    if (h === 'linear') return 2;
+    if (h === 'u-shape' || h === 'ushape') return 3;
+    return 1; // default: L-shape (covers #l-shape, #lshape, or empty hash)
+  }
+  showVariant(variantFromHash());
+  window.addEventListener('hashchange', function(){ showVariant(variantFromHash()); });
 
   const toggle = document.getElementById('lang-toggle');
   const en = document.getElementById('lang-en');
