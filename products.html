@@ -487,6 +487,12 @@
       drawingCell.classList.remove('has-gallery');
     }
     drawingArea.scrollLeft = 0;
+    // Persist selected variant in URL hash so refresh stays on the same configuration
+    var hashMap = { 1: 'l-shape', 2: 'linear', 3: 'u-shape' };
+    var newHash = '#' + hashMap[n];
+    if (window.location.hash !== newHash && history.replaceState) {
+      history.replaceState(null, '', window.location.pathname + window.location.search + newHash);
+    }
   }
 
   // Carousel arrow controls
@@ -522,12 +528,21 @@
     prev.addEventListener('click', function(e){ e.preventDefault(); scrollToSlide(-1); });
     next.addEventListener('click', function(e){ e.preventDefault(); scrollToSlide(1); });
 
-    // Always start on first slide (mobile browsers may otherwise restore an arbitrary scroll position)
+    // Always start on first slide (mobile browsers restore scroll position after page events,
+    // so reset multiple times: immediately, on next frame, and after a delay to override)
     function resetToFirst(){
       area.scrollLeft = 0;
+      requestAnimationFrame(function(){ area.scrollLeft = 0; });
+      setTimeout(function(){ area.scrollLeft = 0; }, 50);
+      setTimeout(function(){ area.scrollLeft = 0; }, 200);
     }
+    // Disable browser's automatic scroll restoration for page
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    document.addEventListener('DOMContentLoaded', resetToFirst);
     window.addEventListener('load', resetToFirst);
     window.addEventListener('pageshow', resetToFirst);
+    // pagehide too: reset before page is cached so on BFCache restore it starts clean
+    window.addEventListener('pagehide', function(){ area.scrollLeft = 0; });
   })();
 
   // Determine which variant to show on page load from URL hash (#l-shape / #linear / #u-shape)
